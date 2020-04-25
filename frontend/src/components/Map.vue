@@ -1,106 +1,114 @@
 <template>
 
   <div style="height: 500px; width: 100%">
-    <div style="height: 200px overflow: auto;">
-      <button @click="showLongText">
-        Toggle long popup
-      </button>
-      <button @click="showMap = !showMap">
-        Toggle map
-      </button>
-    </div>
-    <l-map
-      v-if="showMap"
-      :zoom="zoom"
-      :center="center"
-      :options="mapOptions"
-      style="height: 80%"
-      @update:center="centerUpdate"
-      @update:zoom="zoomUpdate"
-    >
-      <l-tile-layer
-        :url="url"
-        :attribution="attribution"
-      />
-      <l-marker :lat-lng="withPopup">
-        <l-popup>
-          <div @click="innerClick">
-            I am a popup
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
-          </div>
-        </l-popup>
-      </l-marker>
-      <l-marker :lat-lng="withTooltip">
-        <l-tooltip :options="{ permanent: true, interactive: true }">
-          <div @click="innerClick">
-            I am a tooltip
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
-          </div>
-        </l-tooltip>
-      </l-marker>
-      <v-geosearch :options="geosearchOptions" ></v-geosearch>
-    </l-map>
+
+    <GmapMap ref="mymap" style="width: 70%; height: 500px;" :zoom="zoom" :center="center" :options="options">
+      <GmapMarker v-for="(marker, index) in markers"
+        :key="index"
+        :position="marker.position"
+        />
+      <GmapMarker
+        v-if="this.place"
+        label="★"
+        :position="{
+          lat: this.place.geometry.location.lat(),
+          lng: this.place.geometry.location.lng(),
+        }"
+        />
+    </GmapMap>
+
+    <GmapAutocomplete @place_changed="setPlace">
+      </GmapAutocomplete>
+    <button @click="useAndZoomPlace">Add</button>
+    <br/>
   </div>
 </template>
 
 
 <script>
-import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
-import { OpenStreetMapProvider } from 'leaflet-geosearch';
-import VGeosearch from 'vue2-leaflet-geosearch';
+// import { latLng } from "leaflet";
+// import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LGeoJson } from "vue2-leaflet";
+// import { OpenStreetMapProvider } from 'leaflet-geosearch';
+// import VGeosearch from 'vue2-leaflet-geosearch';
+// import { InfoControl, ReferenceChart, ChoroplethLayer } from 'vue-choropleth'
+
+//var geojson_url = "data/europe_medium.json";
+//import Boundaries from '../assets/europe_medium.json'
+
+import {gmapApi} from 'vue2-google-maps'
 
 export default {
   name: "RaiseMap",
   components: {
-    LMap,
-    LTileLayer,
-    LMarker,
-    LPopup,
-    LTooltip,
-    VGeosearch
+    
   },
   data() {
     return {
-      zoom: 9,
-      center: latLng(52.030433, 4.474871), //netherlands
-      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      attribution:
-        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      withPopup: latLng(52.030433, 4.474871),
-      withTooltip: latLng(52.030433, 4.474871),
-      currentZoom: 9,
-      currentCenter: latLng(52.030433, 4.474871),
-      showParagraph: false,
-      mapOptions: {
-        zoomSnap: 0.5
+      markers: [],
+      place: null,
+      options: {
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        disableDefaultUI: false,
+        maxZoom: 11, 
       },
-      showMap: true,
-      geosearchOptions: { // Important part Here
-        provider: new OpenStreetMapProvider(),
-      },
-    };
+      zoom: 4.25,
+      center: {lat: 49.8817161, lng: 12.3303441}
+    }
+  },
+  computed: {
+    google: gmapApi
   },
   methods: {
-    zoomUpdate(zoom) {
-      this.currentZoom = zoom;
+    setDescription(description) {
+          this.description = description;
+        },
+    setPlace(place) {
+      this.place = place;
     },
-    centerUpdate(center) {
-      this.currentCenter = center;
+    usePlace(place) {
+
+      if (this.place) {
+        this.markers.push({
+          position: {
+            lat: this.place.geometry.location.lat(),
+            lng: this.place.geometry.location.lng(),
+          }
+        });
+
+        this.place = null;
+      }
     },
-    showLongText() {
-      this.showParagraph = !this.showParagraph;
-    },
-    innerClick() {
-      alert("Click!");
+    useAndZoomPlace(place){
+      if (this.place) {
+        let pos = { position: {
+            lat: this.place.geometry.location.lat(),
+            lng: this.place.geometry.location.lng(),
+          }
+        };
+        this.markers.push(pos);
+        //TODO get polygonal geometry of place (nominatim)
+        // and zoom to region
+        
+        if (this.markers.length > 1) {
+          var bounds = new google.maps.LatLngBounds();
+          console.log(bounds);
+          for (var i=0; i< this.markers.length; i++) {
+            let newLatLng = this.markers[i];
+            console.log(newLatLng);
+            bounds.extend( newLatLng.position ); 
+          }
+          this.$refs.mymap.$mapObject.fitBounds(bounds);
+        }
+        else {
+          this.center = pos.position;
+        }
+        this.place = null;
+      }
     }
   }
 };
@@ -108,7 +116,4 @@ export default {
 
 <style>
 
-  .leaflet-control-geosearch form input {
-    height: 1.75rem!important;
-  }
 </style>
