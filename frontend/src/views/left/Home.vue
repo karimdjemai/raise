@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <h1>Home</h1>
+    <p> jhfdjkhfdskj sjdfhkjsdhf klsdjfksdj
+    sdfhkjfdsh jhdfsjkhsdf ksdfjjdf
+    </p>
   </div>
 </template>
 
@@ -14,6 +17,5 @@ export default {
 </script>
 <style lang="scss">
   h1 {
-    margin: 2em;
   }
 </style>
