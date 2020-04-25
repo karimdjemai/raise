@@ -121,11 +121,7 @@
         width: 145%;
       }
       
-      .md-list-item-content {
-        //min-height: 0;
-      }
-      
-      .router-link-active {
+      .router-link-exact-active {
         .md-list-item-text {
         background-color: #f2f2f2;
           color: #0052aa;
@@ -182,7 +178,6 @@
         flex-grow: 1;
         h1 {
           color: #0052aa;
-          //margin: 1.5em;
           font-size: 35pt;
         }
       }
