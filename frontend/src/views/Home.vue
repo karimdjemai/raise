@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <p>Home</p>
+    <h1>Home</h1>
   </div>
 </template>
 
@@ -12,3 +12,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  h1 {
+    margin: 2em;
+  }
+</style>

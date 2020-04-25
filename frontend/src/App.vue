@@ -64,6 +64,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height:100vh;
+    padding: 0 !important;
   }
   
   
@@ -119,8 +120,21 @@
     }
   }
   
-  .view {
-    background-color: red;
+  .md-app-content {
+    padding: 0 !important;
+    box-sizing: border-box;
+    background-color: #0052aa;
+    position: relative;
+    top: 1em;
+    
+    .view {
+      position: absolute;
+      border-radius: 1em;
+      background-color: white;
+      width: 100%;
+      height: 100%;
+    }
+    
   }
   
   
