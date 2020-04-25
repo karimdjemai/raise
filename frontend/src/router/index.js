@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import wHome from '../views/left/Home.vue'
+import tHome from '../views/right/Home.vue'
+import wMap from '../views/left/Map.vue'
+import tMap from '../views/right/Map.vue'
 
 Vue.use(VueRouter)
 
@@ -8,23 +11,34 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    components: {
+      left_page: wHome,
+      right_page: tHome
+    }
   },
+  {
+    path: '/',
+    name: 'Map',
+    components: {
+      white_page: wMap,
+      turky_page: tMap
+    }
+  },
+  // {
+  //   path: '/map',
+  //   name: 'Map',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "map" */ '../views/Map.vue')
+  // },
   {
     path: '/about',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/map',
-    name: 'Map',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "map" */ '../views/Map.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/left/About.vue')
   }
 ]
 

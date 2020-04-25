@@ -8,14 +8,14 @@
         <h2>Hi, Amber</h2>
         <h3>Zuid, Holland</h3>
       </md-toolbar>
-    
+      
       <md-list>
-        <md-list-item>
+        <router-link to="/" tag="md-list-item">
           <span class="md-list-item-text">Home</span>
-        </md-list-item>
+        </router-link>
       
         <md-list-item>
-          <span class="md-list-item-text">Resources</span>
+          <span class="md-list-item-text">Map</span>
         </md-list-item>
       
         <md-list-item>
@@ -35,12 +35,20 @@
         </md-list-item>
       </md-list>
       
-      <RaiseLogo id="raise-logo"/>
+      <div>
+        <RaiseLogo id="raise-logo"/>
+      </div>
     </md-app-drawer>
     
     <md-app-content>
-      <div class="view">
-        <router-view />
+      <div class="left_view">
+        <div class="left_content">
+          <router-view name="left_page"/>
+        </div>
+      
+        <div class="right_view">
+          <router-view name="right_page"/>
+        </div>
       </div>
     </md-app-content>
   </md-app>
@@ -58,12 +66,15 @@
   }
 </script>
 
+
+
 <style lang="scss">
   #app {
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    min-height:100vh;
+    height:100vh; //todo better way
+    padding: 0 !important;
   }
   
   
@@ -72,8 +83,8 @@
     color: #fff;
     padding: 1.8em;
     width: 180px !important;
-  
-  
+    
+    
     .md-toolbar {
       align-content: center;
       
@@ -99,12 +110,37 @@
     .md-list {
       margin-top: 2em;
       
+      .md-list-item {
+        margin: {
+          top:0.5rem;
+          bottom:0.5rem;
+          left: 0;
+          right:-1.8em;
+        }
+        
+        width: 145%;
+      }
+      
+      .md-list-item-content {
+        //min-height: 0;
+      }
+      
+      .router-link-active {
+        .md-list-item-text {
+        background-color: #f2f2f2;
+          color: #0052aa;
+        }
+      }
+      
       .md-list-item-text {
+        color: #f2f2f2;
         display: inline;
-        text-align: center;
+        text-align: left;
+        padding-left: 1rem;
         font-weight: bold;
-        font-size: 18px;
-        margin: 1rem 0;
+        font-size: 13pt;
+        border-radius: 0.8rem;
+        vertical-align: center;
       }
     }
     
@@ -113,16 +149,64 @@
       fill: #99badd;
       width: 50px;
       height: auto;
-      display: inline-block;
+      display: inline;
       margin-top: 2em;
       margin-bottom: 0;
+      position: relative;
     }
   }
   
-  .view {
-    /* background-color: red; */
+  .md-app-container {
+    background-color: black;
   }
   
-  
-  //#f2f2f2
+  .md-app-content {
+    padding: 0 !important;
+    box-sizing: border-box;
+    background-color: #0052aa;
+    border: none !important;
+    
+    .left_view {
+      position: absolute;
+      padding: 3em 4em;
+      border-radius: 1.5em;
+      background-color: #f2f2f2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: revert;
+      
+      
+      .left_content {
+        position: relative;
+        flex-grow: 1;
+        h1 {
+          color: #0052aa;
+          //margin: 1.5em;
+          font-size: 35pt;
+        }
+      }
+      
+      .right_view {
+        position: relative;
+        margin: {
+          top: -3em;
+          right: -4em;
+          bottom: -3em;
+        }
+        
+        padding: 3em 4em;
+        border-radius: 1.5em 0 0 1.5em;
+        background-color: #54bbc1;
+        width: 50%;
+        
+        h1 {
+          color: #0052aa;
+          //margin: 1.5em;
+          font-size: 35pt;
+        }
+      }
+    }
+  }
+
 </style>
