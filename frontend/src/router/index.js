@@ -10,10 +10,18 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     components: {
-      white_page: wHome,
-      turky_page: tHome
+      left_page: wHome,
+      right_page: tHome
     }
   },
+  // {
+  //   path: '/',
+  //   name: 'Map',
+  //   components: {
+  //     white_page: wMap,
+  //     turky_page: tMap
+  //   }
+  // },
   {
     path: '/about',
     name: 'About',

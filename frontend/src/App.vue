@@ -43,11 +43,11 @@
     <md-app-content>
       <div class="left_view">
         <div class="left_content">
-          <router-view name="white_page"/>
+          <router-view name="left_page"/>
         </div>
       
         <div class="right_view">
-          <router-view name="turky_page"/>
+          <router-view name="right_page"/>
         </div>
       </div>
     </md-app-content>
