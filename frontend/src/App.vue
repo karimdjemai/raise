@@ -14,9 +14,9 @@
           <span class="md-list-item-text">Home</span>
         </router-link>
       
-        <md-list-item>
+        <router-link to="/Map" tag="md-list-item">
           <span class="md-list-item-text">Map</span>
-        </md-list-item>
+        </router-link>
       
         <md-list-item>
           <span class="md-list-item-text">Data</span>

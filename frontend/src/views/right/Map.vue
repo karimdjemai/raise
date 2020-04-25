@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import raiseMap from '../components/Map.vue'
+import raiseMap from '../../components/Map.vue'
 
 export default {
   name: 'MapView',
