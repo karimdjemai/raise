@@ -36,7 +36,6 @@
       </md-list>
       
       <RaiseLogo id="raise-logo"/>
-
     </md-app-drawer>
     
     <md-app-content>
