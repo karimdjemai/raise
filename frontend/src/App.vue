@@ -198,7 +198,7 @@
         padding: 3em 4em;
         border-radius: 1.5em 0 0 1.5em;
         background-color: #54bbc1;
-        width: 50%;
+        width: 65%;
         
         h1 {
           color: #0052aa;
@@ -208,12 +208,11 @@
       }
     }
   }
-
-  .big-rounded-corners {
-    border-radius: 1.5em 1.5em;
+  .vue-map-container {
+      border-radius: 1.5em 1.5em;
   }
   .rounded-corners-left {
-    border-radius: 1em 0 0   1em;
+    border-radius: 1em 0 0 1em;
   }
   .rounded-corners-right {
     border-radius: 0 1em 1em 0;
