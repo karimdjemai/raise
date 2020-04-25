@@ -1,0 +1,16 @@
+version: '2'
+services:
+  raise-app:
+    image: raise
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://raise-postgresql:5432/raise
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  raise-postgresql:
+    extends:
+      file: postgresql.yml
+      service: raise-postgresql
