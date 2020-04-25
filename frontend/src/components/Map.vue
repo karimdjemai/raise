@@ -48,7 +48,7 @@ export default {
         disableDefaultUI: false,
         maxZoom: 11, 
       },
-      zoom: 4.25,
+      zoom: 4,
       center: {lat: 49.8817161, lng: 12.3303441},
       last_update: '2020-04-26'
     }
