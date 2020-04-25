@@ -2,8 +2,6 @@
 
   <div style="height: 500px; width: 100%">
     <div style="height: 200px overflow: auto;">
-      <p>First marker is placed at {{ withPopup.lat }}, {{ withPopup.lng }}</p>
-      <p>Center is at {{ currentCenter }} and the zoom is: {{ currentZoom }}</p>
       <button @click="showLongText">
         Toggle long popup
       </button>
@@ -48,13 +46,17 @@
           </div>
         </l-tooltip>
       </l-marker>
+      <v-geosearch :options="geosearchOptions" ></v-geosearch>
     </l-map>
   </div>
 </template>
 
+
 <script>
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import VGeosearch from 'vue2-leaflet-geosearch';
 
 export default {
   name: "RaiseMap",
@@ -63,7 +65,8 @@ export default {
     LTileLayer,
     LMarker,
     LPopup,
-    LTooltip
+    LTooltip,
+    VGeosearch
   },
   data() {
     return {
@@ -80,7 +83,10 @@ export default {
       mapOptions: {
         zoomSnap: 0.5
       },
-      showMap: true
+      showMap: true,
+      geosearchOptions: { // Important part Here
+        provider: new OpenStreetMapProvider(),
+      },
     };
   },
   methods: {
@@ -99,3 +105,10 @@ export default {
   }
 };
 </script>
+
+<style>
+
+  .leaflet-control-geosearch form input {
+    height: 1.75rem!important;
+  }
+</style>

@@ -120,7 +120,7 @@
   }
   
   .view {
-    background-color: red;
+    /* background-color: red; */
   }
   
   
