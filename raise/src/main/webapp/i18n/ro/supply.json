@@ -1,0 +1,26 @@
+{
+  "raiseApp": {
+    "supply": {
+      "home": {
+        "title": "Supplies",
+        "createLabel": "Creeare o nouă entitate Supply",
+        "createOrEditLabel": "Creeare sau editare Supply",
+        "notFound": "No Supplies found"
+      },
+      "created": "A fost creată o nouă entitate Supply cu identificatorul {{ param }}",
+      "updated": "Supply cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Supply cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Supply {{ id }}?"
+      },
+      "detail": {
+        "title": "Supply"
+      },
+      "amount": "Amount",
+      "geometry": "Geometry",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region"
+    }
+  }
+}

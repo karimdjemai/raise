@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "riskGroup": {
+      "home": {
+        "title": "Risk Groups",
+        "createLabel": "Maak een nieuwe Risk Group",
+        "createOrEditLabel": "Maak of wijzig een Risk Group",
+        "notFound": "No Risk Groups found"
+      },
+      "created": "A new Risk Group is created with identifier {{ param }}",
+      "updated": "A Risk Group is updated with identifier {{ param }}",
+      "deleted": "A Risk Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Risk Group {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Risk Group"
+      },
+      "name": "Name",
+      "category": "Category"
+    }
+  }
+}

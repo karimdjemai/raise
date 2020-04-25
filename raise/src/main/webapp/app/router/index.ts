@@ -26,6 +26,36 @@ const JhiLogsComponent = () => import('../admin/logs/logs.vue');
 const JhiAuditsComponent = () => import('../admin/audits/audits.vue');
 const JhiMetricsComponent = () => import('../admin/metrics/metrics.vue');
 /* tslint:disable */
+// prettier-ignore
+const RunInstance = () => import('../entities/run-instance/run-instance.vue');
+// prettier-ignore
+const RunInstanceUpdate = () => import('../entities/run-instance/run-instance-update.vue');
+// prettier-ignore
+const RunInstanceDetails = () => import('../entities/run-instance/run-instance-details.vue');
+// prettier-ignore
+const Resource = () => import('../entities/resource/resource.vue');
+// prettier-ignore
+const ResourceUpdate = () => import('../entities/resource/resource-update.vue');
+// prettier-ignore
+const ResourceDetails = () => import('../entities/resource/resource-details.vue');
+// prettier-ignore
+const Region = () => import('../entities/region/region.vue');
+// prettier-ignore
+const RegionUpdate = () => import('../entities/region/region-update.vue');
+// prettier-ignore
+const RegionDetails = () => import('../entities/region/region-details.vue');
+// prettier-ignore
+const RiskGroup = () => import('../entities/risk-group/risk-group.vue');
+// prettier-ignore
+const RiskGroupUpdate = () => import('../entities/risk-group/risk-group-update.vue');
+// prettier-ignore
+const RiskGroupDetails = () => import('../entities/risk-group/risk-group-details.vue');
+// prettier-ignore
+const Supply = () => import('../entities/supply/supply.vue');
+// prettier-ignore
+const SupplyUpdate = () => import('../entities/supply/supply-update.vue');
+// prettier-ignore
+const SupplyDetails = () => import('../entities/supply/supply-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -148,6 +178,131 @@ export default new Router({
       name: 'JhiConfigurationComponent',
       component: JhiConfigurationComponent,
       meta: { authorities: [Authority.ADMIN] }
+    }
+    ,
+    {
+      path: '/run-instance',
+      name: 'RunInstance',
+      component: RunInstance,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/run-instance/new',
+      name: 'RunInstanceCreate',
+      component: RunInstanceUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/run-instance/:runInstanceId/edit',
+      name: 'RunInstanceEdit',
+      component: RunInstanceUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/run-instance/:runInstanceId/view',
+      name: 'RunInstanceView',
+      component: RunInstanceDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/resource',
+      name: 'Resource',
+      component: Resource,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/resource/new',
+      name: 'ResourceCreate',
+      component: ResourceUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/resource/:resourceId/edit',
+      name: 'ResourceEdit',
+      component: ResourceUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/resource/:resourceId/view',
+      name: 'ResourceView',
+      component: ResourceDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/region',
+      name: 'Region',
+      component: Region,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/region/new',
+      name: 'RegionCreate',
+      component: RegionUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/region/:regionId/edit',
+      name: 'RegionEdit',
+      component: RegionUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/region/:regionId/view',
+      name: 'RegionView',
+      component: RegionDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/risk-group',
+      name: 'RiskGroup',
+      component: RiskGroup,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/risk-group/new',
+      name: 'RiskGroupCreate',
+      component: RiskGroupUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/risk-group/:riskGroupId/edit',
+      name: 'RiskGroupEdit',
+      component: RiskGroupUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/risk-group/:riskGroupId/view',
+      name: 'RiskGroupView',
+      component: RiskGroupDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/supply',
+      name: 'Supply',
+      component: Supply,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/supply/new',
+      name: 'SupplyCreate',
+      component: SupplyUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/supply/:supplyId/edit',
+      name: 'SupplyEdit',
+      component: SupplyUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/supply/:supplyId/view',
+      name: 'SupplyView',
+      component: SupplyDetails,
+      meta: { authorities: [Authority.USER] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here
   ]

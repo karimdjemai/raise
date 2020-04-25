@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "riskGroup": {
+      "home": {
+        "title": "Risk Groups",
+        "createLabel": "Risk Group erstellen",
+        "createOrEditLabel": "Risk Group erstellen oder bearbeiten",
+        "notFound": "No Risk Groups found"
+      },
+      "created": "Risk Group erstellt mit ID {{ param }}",
+      "updated": "Risk Group aktualisiert mit ID {{ param }}",
+      "deleted": "Risk Group gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Risk Group {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Risk Group"
+      },
+      "name": "Name",
+      "category": "Category"
+    }
+  }
+}

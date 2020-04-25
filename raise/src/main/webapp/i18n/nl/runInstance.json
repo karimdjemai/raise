@@ -1,0 +1,22 @@
+{
+  "raiseApp": {
+    "runInstance": {
+      "home": {
+        "title": "Run Instances",
+        "createLabel": "Maak een nieuwe Run Instance",
+        "createOrEditLabel": "Maak of wijzig een Run Instance",
+        "notFound": "No Run Instances found"
+      },
+      "created": "A new Run Instance is created with identifier {{ param }}",
+      "updated": "A Run Instance is updated with identifier {{ param }}",
+      "deleted": "A Run Instance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Run Instance {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Run Instance"
+      },
+      "name": "Name"
+    }
+  }
+}

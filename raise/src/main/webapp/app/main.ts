@@ -29,6 +29,11 @@ import ConfigurationService from '@/admin/configuration/configuration.service';
 
 /* tslint:disable */
 
+import RunInstanceService from '@/entities/run-instance/run-instance.service';
+import ResourceService from '@/entities/resource/resource.service';
+import RegionService from '@/entities/region/region.service';
+import RiskGroupService from '@/entities/risk-group/risk-group.service';
+import SupplyService from '@/entities/supply/supply.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -89,6 +94,11 @@ new Vue({
     metricsService: () => new MetricsService(),
     alertService: () => alertService,
     translationService: () => translationService,
+    runInstanceService: () => new RunInstanceService(),
+    resourceService: () => new ResourceService(),
+    regionService: () => new RegionService(),
+    riskGroupService: () => new RiskGroupService(),
+    supplyService: () => new SupplyService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService
   },

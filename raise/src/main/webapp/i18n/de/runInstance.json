@@ -1,0 +1,22 @@
+{
+  "raiseApp": {
+    "runInstance": {
+      "home": {
+        "title": "Run Instances",
+        "createLabel": "Run Instance erstellen",
+        "createOrEditLabel": "Run Instance erstellen oder bearbeiten",
+        "notFound": "No Run Instances found"
+      },
+      "created": "Run Instance erstellt mit ID {{ param }}",
+      "updated": "Run Instance aktualisiert mit ID {{ param }}",
+      "deleted": "Run Instance gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Run Instance {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Run Instance"
+      },
+      "name": "Name"
+    }
+  }
+}

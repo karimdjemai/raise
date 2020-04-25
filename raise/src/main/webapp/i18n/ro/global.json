@@ -10,6 +10,11 @@
         "bankAccount": "ContBancar",
         "label": "Etichetă",
         "operation": "Operație",
+        "runInstance": "Run Instance",
+        "resource": "Resource",
+        "region": "Region",
+        "riskGroup": "Risk Group",
+        "supply": "Supply",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

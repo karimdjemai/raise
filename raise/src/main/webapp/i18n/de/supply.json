@@ -1,0 +1,26 @@
+{
+  "raiseApp": {
+    "supply": {
+      "home": {
+        "title": "Supplies",
+        "createLabel": "Supply erstellen",
+        "createOrEditLabel": "Supply erstellen oder bearbeiten",
+        "notFound": "No Supplies found"
+      },
+      "created": "Supply erstellt mit ID {{ param }}",
+      "updated": "Supply aktualisiert mit ID {{ param }}",
+      "deleted": "Supply gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Supply {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Supply"
+      },
+      "amount": "Amount",
+      "geometry": "Geometry",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region"
+    }
+  }
+}

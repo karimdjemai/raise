@@ -1,0 +1,26 @@
+{
+  "raiseApp": {
+    "supply": {
+      "home": {
+        "title": "Supplies",
+        "createLabel": "Créer un nouveau Supply",
+        "createOrEditLabel": "Créer ou éditer un Supply",
+        "notFound": "Aucun Supply trouvé"
+      },
+      "created": "Un nouveau Supply a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Supply avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Supply avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Supply {{ id }} ?"
+      },
+      "detail": {
+        "title": "Supply"
+      },
+      "amount": "Amount",
+      "geometry": "Geometry",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region"
+    }
+  }
+}

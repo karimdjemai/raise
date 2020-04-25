@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "riskGroup": {
+      "home": {
+        "title": "RiskGroups",
+        "createLabel": "Créer un nouveau Risk Group",
+        "createOrEditLabel": "Créer ou éditer un Risk Group",
+        "notFound": "Aucun Risk Group trouvé"
+      },
+      "created": "Un nouveau Risk Group a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Risk Group avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Risk Group avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Risk Group {{ id }} ?"
+      },
+      "detail": {
+        "title": "Risk Group"
+      },
+      "name": "Name",
+      "category": "Category"
+    }
+  }
+}

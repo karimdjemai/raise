@@ -1,0 +1,22 @@
+{
+  "raiseApp": {
+    "runInstance": {
+      "home": {
+        "title": "Run Instances",
+        "createLabel": "Creeare o nouă entitate Run Instance",
+        "createOrEditLabel": "Creeare sau editare Run Instance",
+        "notFound": "No Run Instances found"
+      },
+      "created": "A fost creată o nouă entitate Run Instance cu identificatorul {{ param }}",
+      "updated": "Run Instance cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Run Instance cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Run Instance {{ id }}?"
+      },
+      "detail": {
+        "title": "Run Instance"
+      },
+      "name": "Name"
+    }
+  }
+}

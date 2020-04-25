@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "riskGroup": {
+      "home": {
+        "title": "Risk Groups",
+        "createLabel": "Creeare o nouă entitate Risk Group",
+        "createOrEditLabel": "Creeare sau editare Risk Group",
+        "notFound": "No Risk Groups found"
+      },
+      "created": "A fost creată o nouă entitate Risk Group cu identificatorul {{ param }}",
+      "updated": "Risk Group cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Risk Group cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Risk Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Risk Group"
+      },
+      "name": "Name",
+      "category": "Category"
+    }
+  }
+}
