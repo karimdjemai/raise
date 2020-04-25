@@ -62,28 +62,62 @@
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height:100%;
+    min-height:100vh;
+    width: 180px;
   }
   
   
   .md-app-drawer {
     background-color: #0052aa;
     color: #fff;
-    width: 180px;
+    width: 200px;
+    padding: 1.8em;
     
-    /*.md-avatar {*/
-    /*  //width:100%;*/
-    /*}*/
+    .md-toolbar {
+      align-content: center;
+      
+      .md-avatar {
+        width: 75px;
+        height: auto;
+        margin-bottom: 0.8em;
+      }
+      
+      h2 {
+        font-size: 0.9rem;
+        margin: auto;
+        font-weight: bold;
+      }
+      
+      h3 {
+        font-size: 0.6rem;
+        margin: auto;
+        font-weight: bold;
+      }
+    }
+    
+    .md-list {
+      margin-top: 2em;
+      
+      .md-list-item-text {
+        display: inline;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        margin: 1rem 0;
+      }
+    }
+    
+    text-align: center;
+    #raise-logo {
+      fill: #99badd;
+      width: 50px;
+      height: auto;
+      display: inline-block;
+      margin-top: 2em;
+      margin-bottom: 0;
+    }
   }
   
-  #raise-logo {
-    fill: #99badd;
-    width: 50px;
-    height: auto;
-  }
   
-  .md-toolbar {
-    display: flex;
-  }
   //#f2f2f2
 </style>
