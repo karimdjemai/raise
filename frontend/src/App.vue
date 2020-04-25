@@ -209,4 +209,14 @@
     }
   }
 
+  .big-rounded-corners {
+    border-radius: 1.5em 1.5em;
+  }
+  .rounded-corners-left {
+    border-radius: 1em 0 0   1em;
+  }
+  .rounded-corners-right {
+    border-radius: 0 1em 1em 0;
+  }
+
 </style>

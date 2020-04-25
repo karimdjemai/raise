@@ -1,7 +1,8 @@
 
 <template>
   <div class="map">
-    <p>MapView</p>
+    <h1>Zuid Holland</h1>
+    <h3>Last update: {{ last_update }}</h3>
     <raise-map />
   </div>
 </template>

@@ -1,8 +1,11 @@
 <template>
 
-  <div style="height: 500px; width: 100%">
+  <div style="height: 500px; width: 100%" class="big-rounded-corners">
+    <GmapAutocomplete @place_changed="setPlace" class="rounded-corners-left" placeholder="  Enter Location">
+        </GmapAutocomplete>
+    <button @click="useAndZoomPlace" class="rounded-corners-right">Add</button>
+    <GmapMap ref="mymap" style="width: 100%; height: 470px"  :zoom="zoom" :center="center" :options="options">
 
-    <GmapMap ref="mymap" style="width: 70%; height: 500px;" :zoom="zoom" :center="center" :options="options">
       <GmapMarker v-for="(marker, index) in markers"
         :key="index"
         :position="marker.position"
@@ -17,9 +20,7 @@
         />
     </GmapMap>
 
-    <GmapAutocomplete @place_changed="setPlace">
-      </GmapAutocomplete>
-    <button @click="useAndZoomPlace">Add</button>
+
     <br/>
   </div>
 </template>
@@ -48,7 +49,8 @@ export default {
         maxZoom: 11, 
       },
       zoom: 4.25,
-      center: {lat: 49.8817161, lng: 12.3303441}
+      center: {lat: 49.8817161, lng: 12.3303441},
+      last_update: '2020-04-26'
     }
   },
   computed: {
