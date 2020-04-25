@@ -1,32 +1,89 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <md-app id="app">
+    <md-app-drawer md-permanent="full" md-fixed>
+      <md-toolbar md-elevation="0">
+        <md-avatar>
+          <img src="./assets/avatar.png" alt="Avatar">
+        </md-avatar>
+        <h2>Hi, Amber</h2>
+        <h3>Zuid, Holland</h3>
+      </md-toolbar>
+    
+      <md-list>
+        <md-list-item>
+          <span class="md-list-item-text">Home</span>
+        </md-list-item>
+      
+        <md-list-item>
+          <span class="md-list-item-text">Resources</span>
+        </md-list-item>
+      
+        <md-list-item>
+          <span class="md-list-item-text">Data</span>
+        </md-list-item>
+        <md-list-item>
+          
+          <span class="md-list-item-text">Track</span>
+        </md-list-item>
+      
+        <md-list-item>
+          <span class="md-list-item-text">Messages</span>
+        </md-list-item>
+        
+        <md-list-item>
+          <span class="md-list-item-text">Settings</span>
+        </md-list-item>
+      </md-list>
+      
+      <RaiseLogo id="raise-logo"/>
+
+    </md-app-drawer>
+    
+    <md-app-content>
+      <router-view />
+    </md-app-content>
+  </md-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+  import RaiseLogo from './assets/raise_logo.svg'
+  
+  export default {
+    name: 'App',
+    
+    components: {
+      RaiseLogo
     }
   }
-}
+</script>
+
+<style lang="scss">
+  #app {
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height:100%;
+  }
+  
+  
+  .md-app-drawer {
+    background-color: #0052aa;
+    color: #fff;
+    width: 180px;
+    
+    /*.md-avatar {*/
+    /*  //width:100%;*/
+    /*}*/
+  }
+  
+  #raise-logo {
+    fill: #99badd;
+    width: 50px;
+    height: auto;
+  }
+  
+  .md-toolbar {
+    display: flex;
+  }
+  //#f2f2f2
 </style>
