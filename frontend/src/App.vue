@@ -1,6 +1,6 @@
 <template>
   <md-app id="app">
-    <md-app-drawer md-permanent="full" md-fixed>
+    <md-app-drawer md-permanent="full">
       <md-toolbar md-elevation="0">
         <md-avatar>
           <img src="./assets/avatar.png" alt="Avatar">
@@ -39,7 +39,9 @@
     </md-app-drawer>
     
     <md-app-content>
-      <router-view />
+      <div class="view">
+        <router-view />
+      </div>
     </md-app-content>
   </md-app>
 </template>
@@ -62,16 +64,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height:100vh;
-    width: 180px;
   }
   
   
   .md-app-drawer {
     background-color: #0052aa;
     color: #fff;
-    width: 200px;
     padding: 1.8em;
-    
+    width: 180px !important;
+  
+  
     .md-toolbar {
       align-content: center;
       
@@ -115,6 +117,10 @@
       margin-top: 2em;
       margin-bottom: 0;
     }
+  }
+  
+  .view {
+    background-color: red;
   }
   
   
