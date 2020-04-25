@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "infectionRate": {
+      "home": {
+        "title": "Infection Rates",
+        "createLabel": "Infection Rate erstellen",
+        "createOrEditLabel": "Infection Rate erstellen oder bearbeiten",
+        "notFound": "No Infection Rates found"
+      },
+      "created": "Infection Rate erstellt mit ID {{ param }}",
+      "updated": "Infection Rate aktualisiert mit ID {{ param }}",
+      "deleted": "Infection Rate gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Infection Rate {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Infection Rate"
+      },
+      "amount": "Amount",
+      "population": "Population"
+    }
+  }
+}

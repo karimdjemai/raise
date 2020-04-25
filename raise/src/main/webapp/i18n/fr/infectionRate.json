@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "infectionRate": {
+      "home": {
+        "title": "InfectionRates",
+        "createLabel": "Créer un nouveau Infection Rate",
+        "createOrEditLabel": "Créer ou éditer un Infection Rate",
+        "notFound": "Aucun Infection Rate trouvé"
+      },
+      "created": "Un nouveau Infection Rate a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Infection Rate avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Infection Rate avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Infection Rate {{ id }} ?"
+      },
+      "detail": {
+        "title": "Infection Rate"
+      },
+      "amount": "Amount",
+      "population": "Population"
+    }
+  }
+}

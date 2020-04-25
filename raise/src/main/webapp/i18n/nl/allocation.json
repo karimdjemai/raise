@@ -1,0 +1,27 @@
+{
+  "raiseApp": {
+    "allocation": {
+      "home": {
+        "title": "Allocations",
+        "createLabel": "Maak een nieuwe Allocation",
+        "createOrEditLabel": "Maak of wijzig een Allocation",
+        "notFound": "No Allocations found"
+      },
+      "created": "A new Allocation is created with identifier {{ param }}",
+      "updated": "A Allocation is updated with identifier {{ param }}",
+      "deleted": "A Allocation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Allocation {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Allocation"
+      },
+      "amount": "Amount",
+      "cost": "Cost",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region",
+      "riskGroup": "Risk Group"
+    }
+  }
+}

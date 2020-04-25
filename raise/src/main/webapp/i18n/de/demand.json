@@ -1,0 +1,27 @@
+{
+  "raiseApp": {
+    "demand": {
+      "home": {
+        "title": "Demands",
+        "createLabel": "Demand erstellen",
+        "createOrEditLabel": "Demand erstellen oder bearbeiten",
+        "notFound": "No Demands found"
+      },
+      "created": "Demand erstellt mit ID {{ param }}",
+      "updated": "Demand aktualisiert mit ID {{ param }}",
+      "deleted": "Demand gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Demand {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Demand"
+      },
+      "amount": "Amount",
+      "geometry": "Geometry",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region",
+      "riskGroup": "Risk Group"
+    }
+  }
+}

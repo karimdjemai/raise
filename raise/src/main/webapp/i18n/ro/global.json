@@ -15,6 +15,10 @@
         "region": "Region",
         "riskGroup": "Risk Group",
         "supply": "Supply",
+        "demand": "Demand",
+        "odmatrix": "Odmatrix",
+        "allocation": "Allocation",
+        "infectionRate": "Infection Rate",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

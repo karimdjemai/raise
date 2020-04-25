@@ -1,0 +1,24 @@
+{
+  "raiseApp": {
+    "odmatrix": {
+      "home": {
+        "title": "Odmatrices",
+        "createLabel": "Créer un nouveau Odmatrix",
+        "createOrEditLabel": "Créer ou éditer un Odmatrix",
+        "notFound": "Aucun Odmatrix trouvé"
+      },
+      "created": "Un nouveau Odmatrix a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Odmatrix avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Odmatrix avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Odmatrix {{ id }} ?"
+      },
+      "detail": {
+        "title": "Odmatrix"
+      },
+      "cost": "Cost",
+      "fromRegion": "From Region",
+      "toRegion": "To Region"
+    }
+  }
+}

@@ -49,6 +49,10 @@ public class CacheConfiguration {
             createCache(cm, com.raise.domain.Region.class.getName());
             createCache(cm, com.raise.domain.RiskGroup.class.getName());
             createCache(cm, com.raise.domain.Supply.class.getName());
+            createCache(cm, com.raise.domain.Demand.class.getName());
+            createCache(cm, com.raise.domain.Odmatrix.class.getName());
+            createCache(cm, com.raise.domain.Allocation.class.getName());
+            createCache(cm, com.raise.domain.InfectionRate.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

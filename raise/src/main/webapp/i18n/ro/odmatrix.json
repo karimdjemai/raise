@@ -1,0 +1,24 @@
+{
+  "raiseApp": {
+    "odmatrix": {
+      "home": {
+        "title": "Odmatrices",
+        "createLabel": "Creeare o nouă entitate Odmatrix",
+        "createOrEditLabel": "Creeare sau editare Odmatrix",
+        "notFound": "No Odmatrices found"
+      },
+      "created": "A fost creată o nouă entitate Odmatrix cu identificatorul {{ param }}",
+      "updated": "Odmatrix cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Odmatrix cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Odmatrix {{ id }}?"
+      },
+      "detail": {
+        "title": "Odmatrix"
+      },
+      "cost": "Cost",
+      "fromRegion": "From Region",
+      "toRegion": "To Region"
+    }
+  }
+}

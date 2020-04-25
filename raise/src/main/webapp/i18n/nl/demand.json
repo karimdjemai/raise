@@ -1,0 +1,27 @@
+{
+  "raiseApp": {
+    "demand": {
+      "home": {
+        "title": "Demands",
+        "createLabel": "Maak een nieuwe Demand",
+        "createOrEditLabel": "Maak of wijzig een Demand",
+        "notFound": "No Demands found"
+      },
+      "created": "A new Demand is created with identifier {{ param }}",
+      "updated": "A Demand is updated with identifier {{ param }}",
+      "deleted": "A Demand is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Demand {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Demand"
+      },
+      "amount": "Amount",
+      "geometry": "Geometry",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region",
+      "riskGroup": "Risk Group"
+    }
+  }
+}

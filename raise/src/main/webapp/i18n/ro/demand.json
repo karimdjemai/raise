@@ -1,0 +1,27 @@
+{
+  "raiseApp": {
+    "demand": {
+      "home": {
+        "title": "Demands",
+        "createLabel": "Creeare o nouă entitate Demand",
+        "createOrEditLabel": "Creeare sau editare Demand",
+        "notFound": "No Demands found"
+      },
+      "created": "A fost creată o nouă entitate Demand cu identificatorul {{ param }}",
+      "updated": "Demand cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Demand cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Demand {{ id }}?"
+      },
+      "detail": {
+        "title": "Demand"
+      },
+      "amount": "Amount",
+      "geometry": "Geometry",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region",
+      "riskGroup": "Risk Group"
+    }
+  }
+}

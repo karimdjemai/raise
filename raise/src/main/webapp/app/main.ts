@@ -34,6 +34,10 @@ import ResourceService from '@/entities/resource/resource.service';
 import RegionService from '@/entities/region/region.service';
 import RiskGroupService from '@/entities/risk-group/risk-group.service';
 import SupplyService from '@/entities/supply/supply.service';
+import DemandService from '@/entities/demand/demand.service';
+import OdmatrixService from '@/entities/odmatrix/odmatrix.service';
+import AllocationService from '@/entities/allocation/allocation.service';
+import InfectionRateService from '@/entities/infection-rate/infection-rate.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -99,6 +103,10 @@ new Vue({
     regionService: () => new RegionService(),
     riskGroupService: () => new RiskGroupService(),
     supplyService: () => new SupplyService(),
+    demandService: () => new DemandService(),
+    odmatrixService: () => new OdmatrixService(),
+    allocationService: () => new AllocationService(),
+    infectionRateService: () => new InfectionRateService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService
   },

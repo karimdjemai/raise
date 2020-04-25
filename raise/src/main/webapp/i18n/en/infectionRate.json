@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "infectionRate": {
+      "home": {
+        "title": "Infection Rates",
+        "createLabel": "Create a new Infection Rate",
+        "createOrEditLabel": "Create or edit a Infection Rate",
+        "notFound": "No Infection Rates found"
+      },
+      "created": "A new Infection Rate is created with identifier {{ param }}",
+      "updated": "A Infection Rate is updated with identifier {{ param }}",
+      "deleted": "A Infection Rate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Infection Rate {{ id }}?"
+      },
+      "detail": {
+        "title": "Infection Rate"
+      },
+      "amount": "Amount",
+      "population": "Population"
+    }
+  }
+}

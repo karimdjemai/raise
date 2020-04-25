@@ -1,0 +1,24 @@
+{
+  "raiseApp": {
+    "odmatrix": {
+      "home": {
+        "title": "Odmatrices",
+        "createLabel": "Maak een nieuwe Odmatrix",
+        "createOrEditLabel": "Maak of wijzig een Odmatrix",
+        "notFound": "No Odmatrices found"
+      },
+      "created": "A new Odmatrix is created with identifier {{ param }}",
+      "updated": "A Odmatrix is updated with identifier {{ param }}",
+      "deleted": "A Odmatrix is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Odmatrix {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Odmatrix"
+      },
+      "cost": "Cost",
+      "fromRegion": "From Region",
+      "toRegion": "To Region"
+    }
+  }
+}

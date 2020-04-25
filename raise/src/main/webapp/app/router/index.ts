@@ -56,6 +56,30 @@ const Supply = () => import('../entities/supply/supply.vue');
 const SupplyUpdate = () => import('../entities/supply/supply-update.vue');
 // prettier-ignore
 const SupplyDetails = () => import('../entities/supply/supply-details.vue');
+// prettier-ignore
+const Demand = () => import('../entities/demand/demand.vue');
+// prettier-ignore
+const DemandUpdate = () => import('../entities/demand/demand-update.vue');
+// prettier-ignore
+const DemandDetails = () => import('../entities/demand/demand-details.vue');
+// prettier-ignore
+const Odmatrix = () => import('../entities/odmatrix/odmatrix.vue');
+// prettier-ignore
+const OdmatrixUpdate = () => import('../entities/odmatrix/odmatrix-update.vue');
+// prettier-ignore
+const OdmatrixDetails = () => import('../entities/odmatrix/odmatrix-details.vue');
+// prettier-ignore
+const Allocation = () => import('../entities/allocation/allocation.vue');
+// prettier-ignore
+const AllocationUpdate = () => import('../entities/allocation/allocation-update.vue');
+// prettier-ignore
+const AllocationDetails = () => import('../entities/allocation/allocation-details.vue');
+// prettier-ignore
+const InfectionRate = () => import('../entities/infection-rate/infection-rate.vue');
+// prettier-ignore
+const InfectionRateUpdate = () => import('../entities/infection-rate/infection-rate-update.vue');
+// prettier-ignore
+const InfectionRateDetails = () => import('../entities/infection-rate/infection-rate-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -302,6 +326,106 @@ export default new Router({
       path: '/supply/:supplyId/view',
       name: 'SupplyView',
       component: SupplyDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/demand',
+      name: 'Demand',
+      component: Demand,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/demand/new',
+      name: 'DemandCreate',
+      component: DemandUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/demand/:demandId/edit',
+      name: 'DemandEdit',
+      component: DemandUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/demand/:demandId/view',
+      name: 'DemandView',
+      component: DemandDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/odmatrix',
+      name: 'Odmatrix',
+      component: Odmatrix,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/odmatrix/new',
+      name: 'OdmatrixCreate',
+      component: OdmatrixUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/odmatrix/:odmatrixId/edit',
+      name: 'OdmatrixEdit',
+      component: OdmatrixUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/odmatrix/:odmatrixId/view',
+      name: 'OdmatrixView',
+      component: OdmatrixDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/allocation',
+      name: 'Allocation',
+      component: Allocation,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/allocation/new',
+      name: 'AllocationCreate',
+      component: AllocationUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/allocation/:allocationId/edit',
+      name: 'AllocationEdit',
+      component: AllocationUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/allocation/:allocationId/view',
+      name: 'AllocationView',
+      component: AllocationDetails,
+      meta: { authorities: [Authority.USER] }
+    }
+    ,
+    {
+      path: '/infection-rate',
+      name: 'InfectionRate',
+      component: InfectionRate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/infection-rate/new',
+      name: 'InfectionRateCreate',
+      component: InfectionRateUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/infection-rate/:infectionRateId/edit',
+      name: 'InfectionRateEdit',
+      component: InfectionRateUpdate,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/infection-rate/:infectionRateId/view',
+      name: 'InfectionRateView',
+      component: InfectionRateDetails,
       meta: { authorities: [Authority.USER] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

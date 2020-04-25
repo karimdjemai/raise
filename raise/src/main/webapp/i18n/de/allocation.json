@@ -1,0 +1,27 @@
+{
+  "raiseApp": {
+    "allocation": {
+      "home": {
+        "title": "Allocations",
+        "createLabel": "Allocation erstellen",
+        "createOrEditLabel": "Allocation erstellen oder bearbeiten",
+        "notFound": "No Allocations found"
+      },
+      "created": "Allocation erstellt mit ID {{ param }}",
+      "updated": "Allocation aktualisiert mit ID {{ param }}",
+      "deleted": "Allocation gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Allocation {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Allocation"
+      },
+      "amount": "Amount",
+      "cost": "Cost",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region",
+      "riskGroup": "Risk Group"
+    }
+  }
+}

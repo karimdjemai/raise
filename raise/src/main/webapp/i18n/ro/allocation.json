@@ -1,0 +1,27 @@
+{
+  "raiseApp": {
+    "allocation": {
+      "home": {
+        "title": "Allocations",
+        "createLabel": "Creeare o nouă entitate Allocation",
+        "createOrEditLabel": "Creeare sau editare Allocation",
+        "notFound": "No Allocations found"
+      },
+      "created": "A fost creată o nouă entitate Allocation cu identificatorul {{ param }}",
+      "updated": "Allocation cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Allocation cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Allocation {{ id }}?"
+      },
+      "detail": {
+        "title": "Allocation"
+      },
+      "amount": "Amount",
+      "cost": "Cost",
+      "runInstance": "Run Instance",
+      "resource": "Resource",
+      "region": "Region",
+      "riskGroup": "Risk Group"
+    }
+  }
+}

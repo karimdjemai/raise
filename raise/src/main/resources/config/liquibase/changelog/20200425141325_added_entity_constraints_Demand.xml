@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity Demand.
+    -->
+    <changeSet id="20200425141325-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="run_instance_id"
+                                 baseTableName="demand"
+                                 constraintName="fk_demand_run_instance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="run_instance"/>
+
+        <addForeignKeyConstraint baseColumnNames="resource_id"
+                                 baseTableName="demand"
+                                 constraintName="fk_demand_resource_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resource"/>
+
+        <addForeignKeyConstraint baseColumnNames="region_id"
+                                 baseTableName="demand"
+                                 constraintName="fk_demand_region_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"/>
+
+        <addForeignKeyConstraint baseColumnNames="risk_group_id"
+                                 baseTableName="demand"
+                                 constraintName="fk_demand_risk_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="risk_group"/>
+
+    </changeSet>
+</databaseChangeLog>

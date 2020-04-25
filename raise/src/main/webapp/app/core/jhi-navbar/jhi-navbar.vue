@@ -45,6 +45,22 @@
                         <font-awesome-icon icon="asterisk" />
                         <span v-text="$t('global.menu.entities.supply')">Supply</span>
                     </b-dropdown-item>
+                    <b-dropdown-item to="/demand">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.demand')">Demand</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/odmatrix">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.odmatrix')">Odmatrix</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/allocation">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.allocation')">Allocation</span>
+                    </b-dropdown-item>
+                    <b-dropdown-item to="/infection-rate">
+                        <font-awesome-icon icon="asterisk" />
+                        <span v-text="$t('global.menu.entities.infectionRate')">InfectionRate</span>
+                    </b-dropdown-item>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown

@@ -1,0 +1,23 @@
+{
+  "raiseApp": {
+    "infectionRate": {
+      "home": {
+        "title": "Infection Rates",
+        "createLabel": "Creeare o nouă entitate Infection Rate",
+        "createOrEditLabel": "Creeare sau editare Infection Rate",
+        "notFound": "No Infection Rates found"
+      },
+      "created": "A fost creată o nouă entitate Infection Rate cu identificatorul {{ param }}",
+      "updated": "Infection Rate cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Infection Rate cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Infection Rate {{ id }}?"
+      },
+      "detail": {
+        "title": "Infection Rate"
+      },
+      "amount": "Amount",
+      "population": "Population"
+    }
+  }
+}
