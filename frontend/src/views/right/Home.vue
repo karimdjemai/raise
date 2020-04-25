@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p> jhfdjkhfdskj sjdfhkjsdhf klsdjfksdj
-    sdfhkjfdsh jhdfsjkhsdf ksdfjjdf
-    </p>
+    <h2>Latest Updates</h2>
+	  
+	  
+	  
   </div>
 </template>
 
@@ -16,4 +16,9 @@ export default {
 }
 </script>
 <style lang="scss">
+	.home {
+		h2 {
+			color: #f2f2f2;
+		}
+	}
 </style>

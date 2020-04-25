@@ -80,7 +80,7 @@
   
   .md-app-drawer {
     background-color: #0052aa;
-    color: #fff;
+    color: #f2f2f2;
     padding: 1.8em;
     width: 180px !important;
     
