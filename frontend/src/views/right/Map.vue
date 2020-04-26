@@ -2,7 +2,7 @@
 <template>
   <div class="right-map">
     <div class="map-container">
-      <raise-map class="map"/>
+      <raise-map class="map" />
     </div>
     <div class="headers">
       <h1>Zuid Holland</h1>

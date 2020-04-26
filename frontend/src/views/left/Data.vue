@@ -18,7 +18,9 @@
 			<md-list-item>
 				<span class="desc">Location</span>
 				<md-field>
-					<md-input placeholder="Choose option..."></md-input>
+				<md-autocomplete v-model="selectedPlace" placeholder="Type here..." :md-options="formattedPlaces" @md-changed="getPlaces" 
+							@md-opened="getPlaces" :md-open-on-focus="false">
+				</md-autocomplete>
 				</md-field>
 			</md-list-item>
 			<md-list-item>
@@ -48,9 +50,56 @@
 </template>
 
 <script>
-	export default {
-		name: "Data",
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import { GoogleProvider } from 'leaflet-geosearch';
+
+export default {
+	name: "Data",
+	data() {
+		return {
+		places: [],
+		provider: new GoogleProvider({
+						params: {
+						key: 'AIzaSyCFguorprJJ2cHkl_0C27ROgFObfruntjo',
+						}
+		})
+		}
+	},
+	computed: {
+		formattedPlaces() {
+			return this.places.map(p=>p.label);
+		},
+		selectedPlace: {
+			get() {
+				return this.$store.state.dataTemplateLocation;
+			},
+			set(value) {
+				this.$store.commit('setDataTemplateLocation', value);
+			}
+		} 
+	},
+	methods: {
+		getPlaces(searchTerm) {
+		console.log(searchTerm);
+
+		// const result = {
+		//         x: Number,                      // lon,
+		//         y: Number,                      // lat,
+		//         label: String,                  // formatted address
+		//         bounds: [
+		//           [Number, Number],             // s, w - lat, lon
+		//           [Number, Number],             // n, e - lat, lon
+		//         ],
+		//         raw: {},                        // raw provider result
+		//       }
+		this.provider.search({ query: searchTerm})
+						.then(function(result) { 
+						console.log(result);
+						this.places = result;
+						}.bind(this));
+		}
 	}
+}
 </script>
 
 <style lang="scss">
@@ -77,7 +126,7 @@
 						margin: 0;
 						padding: 0;
 						min-height: 0;
-						width: 50%;
+						width: 100%;
 						
 						.md-input {
 							font-size: 10pt;
@@ -123,6 +172,10 @@
 					color: #f2f2f2;
 				}
 			}
+		}
+		/* clear button on line with this */
+		.md-autocomplete .md-button {
+		top: 0px;
 		}
 	}
 </style>

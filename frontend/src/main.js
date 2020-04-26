@@ -10,17 +10,17 @@ Vue.use(VueMaterial)
 
 // map part
 // Google Maps
-import * as VueGoogleMaps from 'vue2-google-maps'
+// import * as VueGoogleMaps from 'vue2-google-maps'
  
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: 'AIzaSyCFguorprJJ2cHkl_0C27ROgFObfruntjo',
-    libraries: 'places,drawing,visualization',
-    region: 'EU',
-    language: 'en',
-  },
-  installComponents: true
-})
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     key: 'AIzaSyCFguorprJJ2cHkl_0C27ROgFObfruntjo',
+//     libraries: 'places,drawing,visualization',
+//     region: 'EU',
+//     language: 'en',
+//   },
+//   installComponents: true
+// })
 
 // Leaflet/OSM alternative 
 import 'leaflet/dist/leaflet.css';
