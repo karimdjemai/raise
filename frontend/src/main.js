@@ -8,6 +8,8 @@ import 'vue-material/dist/vue-material.min.css'
 
 Vue.use(VueMaterial)
 
+// map part
+// Google Maps
 import * as VueGoogleMaps from 'vue2-google-maps'
  
 Vue.use(VueGoogleMaps, {
@@ -19,6 +21,22 @@ Vue.use(VueGoogleMaps, {
   },
   installComponents: true
 })
+
+// Leaflet/OSM alternative 
+import 'leaflet/dist/leaflet.css';
+
+// start fix for missing markers
+import { Icon } from 'leaflet';
+
+delete Icon.Default.prototype._getIconUrl;
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
+// end fix for missing markers
+
+// end map part
 
 Vue.config.productionTip = false
 

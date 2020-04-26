@@ -1,10 +1,16 @@
 <template>
 
   <div style="height: 500px; width: 100%" class="big-rounded-corners">
-    <GmapAutocomplete @place_changed="setPlace" class="rounded-corners-left" placeholder="  Enter Location">
+    
+    <md-field style="margin: 4px 0!important;">
+      <GmapAutocomplete style="background: white;" @place_changed="setPlace" class="md-input" placeholder="  Enter Location">
         </GmapAutocomplete>
-    <button @click="useAndZoomPlace" class="rounded-corners-right">Add</button>
-    <GmapMap ref="mymap" style="width: 100%; height: 470px"  :zoom="zoom" :center="center" :options="options">
+      <md-button style="background: white; width: 32px; min-width: 32px; height: 32px;" @click="useAndZoomPlace" class="md-icon-button md-raised">
+        <md-icon>add</md-icon>
+      </md-button>
+    </md-field>
+
+    <GmapMap ref="mymap" style="width: 100%; height: 440px"  :zoom="zoom" :center="center" :options="options">
 
       <GmapMarker v-for="(marker, index) in markers"
         :key="index"
