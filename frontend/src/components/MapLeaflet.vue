@@ -63,6 +63,26 @@
           </l-popup>
         </l-circle>
       </l-feature-group>
+      <!-- <l-feature-group>
+        <l-polyline
+          v-for="line in allocation"
+          :key="line.id"
+          :lat-lngs="[line.from_position, line.to_position]"
+          :weight="line.quantity/100"
+          :color="allocationStyle.color"
+          :fill-opacity="allocationStyle.opacity">
+          <l-popup>
+            <div>
+              <p class="title">
+                Allocation
+              </p>
+               {{ "Resource: " + line.resource }}
+               <br>
+               {{ "Quantity: " + line.quantity }}
+            </div>
+          </l-popup>
+        </l-polyline>
+      </l-feature-group> -->
     </l-map>
   </div>
 </template>
@@ -70,7 +90,8 @@
 
 <script>
 import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LCircle, LCircleMarker, LFeatureGroup } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LCircle, LCircleMarker, LFeatureGroup, LPolyline } from "vue2-leaflet";
+
 
 export default {
   name: "RaiseMap",
@@ -82,7 +103,8 @@ export default {
     LTooltip,
     LCircle,
     LCircleMarker,
-    LFeatureGroup
+    LFeatureGroup,
+    LPolyline,
   },
   data() {
     return {
@@ -97,8 +119,9 @@ export default {
       },
       showMap: true,
       showMarker: false,
-      supplyStyle: {color: 'blue', opacity: 1.0 },
+      supplyStyle: {color: '#0052aa', opacity: 1.0 },
       demandStyle: {color: 'darkred', opacity: 1.0 },
+      allocationStyle: {color: '#54bbc1', opacity: 1.0},
     }
   },
   mounted() {
@@ -119,7 +142,10 @@ export default {
     },
     demandCircles() {
       return this.$store.state.mapDemandValues;
-     }
+     },
+    allocation() {
+       return this.$store.state.mapAllocation;
+     },
   },
   methods: {
     zoomUpdate(zoom) {

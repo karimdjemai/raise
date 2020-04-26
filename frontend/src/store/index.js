@@ -38,6 +38,15 @@ export default new Vuex.Store({
                     {id: 2, resource: "PPE", 
                         position: latLng(52.090433, 4.794871), 
                         loc_name: "Rijswijk, Niederlande", quantity: 1500}] ,   
+    mapAllocation: [{id: 1, resource: "PPE", 
+                        from_position: latLng(52.040433, 4.674871), 
+                        to_position: latLng(52.060433, 4.934871), 
+                        quantity: 1500}, 
+                        {id: 2, resource: "PPE", 
+                        from_position: latLng(52.040433, 4.674871), 
+                        to_position: latLng(52.090433, 4.794871), 
+                        quantity: 500}
+                    ] ,   
   },
   mutations: {
     setMapFilterLocation(state, newValue) {
