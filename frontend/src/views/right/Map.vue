@@ -6,7 +6,7 @@
     </div>
     <div class="headers">
       <h1>Zuid Holland</h1>
-      <h2>Last update: {{ last_update }} 25.04.20</h2>
+      <h2>Last update: 25.04.20</h2>
     </div>
   </div>
 </template>

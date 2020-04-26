@@ -8,7 +8,7 @@
 		</div>
 		
 		<md-list class="messages">
-			<md-list-item>
+			<md-list-item class="read">
 				<span class="header">25.04.2020</span>
 				<span class="md-list-item-text"> Order #573 delivered successfully to location XYZ.</span>
 			</md-list-item>

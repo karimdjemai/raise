@@ -14,15 +14,17 @@
           <span class="md-list-item-text">Home</span>
         </router-link>
       
-        <router-link to="/Map" tag="md-list-item">
+        <router-link to="/map" tag="md-list-item">
           <span class="md-list-item-text">Map</span>
         </router-link>
-      
-        <md-list-item>
+  
+        <router-link to="/data/demand" tag="md-list-item" :class="{
+          'router-link-exact-active': $router.currentRoute.name === 'Data'
+        }">
           <span class="md-list-item-text">Data</span>
-        </md-list-item>
+        </router-link>
+        
         <md-list-item>
-          
           <span class="md-list-item-text">Track</span>
         </md-list-item>
       
@@ -110,15 +112,19 @@
     .md-list {
       margin-top: 2em;
       
+      .md-list-item-content {
+        min-height: 0;
+        padding: 1em 1.6em;
+      }
+      
       .md-list-item {
         margin: {
           top:0.5rem;
           bottom:0.5rem;
           left: 0;
-          right:-1.8em;
         }
         
-        width: 145%;
+        //width: 145%; //todo: later
       }
       
       .router-link-exact-active {
@@ -131,8 +137,8 @@
       .md-list-item-text {
         color: #f2f2f2;
         display: inline;
-        text-align: left;
-        padding-left: 1rem;
+        text-align: center;
+        padding-left: 0rem;
         font-weight: bold;
         font-size: 13pt;
         border-radius: 0.8rem;
@@ -180,6 +186,9 @@
         h1 {
           color: #0052aa;
           font-size: 35pt;
+        }
+        h2, h3 {
+          color: #0052aa;
         }
       }
       

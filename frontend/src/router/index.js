@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import wHome from '../views/left/Home.vue'
-import tHome from '../views/right/Home.vue'
+import lHome from '../views/left/Home.vue'
+import rHome from '../views/right/Home.vue'
 import lMap from '../views/left/Map.vue'
 import rMap from '../views/right/Map.vue'
+import lData from '../views/left/Data'
+import rDataDemand from '../views/right/DataDemand'
 
 Vue.use(VueRouter)
 
@@ -12,8 +14,8 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     components: {
-      left_page: wHome,
-      right_page: tHome
+      left_page: lHome,
+      right_page: rHome
     }
   },
   {
@@ -22,6 +24,22 @@ Vue.use(VueRouter)
     components: {
       left_page: lMap,
       right_page: rMap
+    }
+  },
+  {
+    path: '/data/demand',
+    name: 'Data',
+    components: {
+      left_page: lData,
+      right_page: rDataDemand
+    }
+  },
+  {
+    path: '/data/availability',
+    name: 'Data',
+    components: {
+      left_page: lData,
+      right_page: rDataDemand
     }
   },
   {
