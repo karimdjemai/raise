@@ -65,17 +65,17 @@ if __name__ == '__main__':
 
     availabilities = dict()
     availabilities[('North', 'Ventilators')] = 50
-    availabilities[('North', 'Doctors')] = 30
+    availabilities[('North', 'Doctors')] = 20
     availabilities[('North', 'Nurses')] = 300
     availabilities[('South', 'Ventilators')] = 50
     availabilities[('South', 'Doctors')] = 30
-    availabilities[('South', 'Nurses')] = 120
+    availabilities[('South', 'Nurses')] = 150
     availabilities[('West', 'Ventilators')] = 21
     availabilities[('West', 'Doctors')] = 100
-    availabilities[('West', 'Nurses')] = 200
-    availabilities[('East', 'Ventilators')] = 22
+    availabilities[('West', 'Nurses')] = 100
+    availabilities[('East', 'Ventilators')] = 9
     availabilities[('East', 'Doctors')] = 100
-    availabilities[('East', 'Nurses')] = 350
+    availabilities[('East', 'Nurses')] = 100
 
     distance = dict()
     distance[('North', 'South')] = 5
