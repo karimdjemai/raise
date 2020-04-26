@@ -12,7 +12,7 @@
 </template>
 
 <script>
-	import InputTable from '../../components/InputTable'
+	import InputTable from '../../components/SupplyTable'
 	
 	export default {
 		name: "DataAvailability",

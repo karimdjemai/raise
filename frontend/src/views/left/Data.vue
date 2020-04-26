@@ -52,6 +52,7 @@
 <script>
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import { GoogleProvider } from 'leaflet-geosearch';
+import { latLng } from "leaflet";
 
 export default {
 	name: "Data",
@@ -71,12 +72,17 @@ export default {
 		},
 		selectedPlace: {
 			get() {
-				return this.$store.state.dataTemplateLocation;
+				return this.$store.state.dataTemplateLocation.name;
 			},
 			set(value) {
-				this.$store.commit('setDataTemplateLocation', value);
+				console.log(value);
+				//TODO get position also!
+				let result = this.places.find(p=>p.label == value);
+				console.log(result.y + " "+ result.x);
+				let tuple = {name: value, position: latLng(result.y, result.x) };
+				this.$store.commit('setDataTemplateLocation', tuple);
 			}
-		} 
+		},
 	},
 	methods: {
 		getPlaces(searchTerm) {

@@ -14,8 +14,7 @@
         <span class="desc">Location</span>
         <md-field>
           <md-autocomplete v-model="selectedPlace" placeholder="Type here..." :md-options="formattedPlaces" 
-                    @md-changed="getPlaces" 
-                    @md-opened="getPlaces" :md-open-on-focus="false">
+                    @md-changed="getPlaces" @md-opened="getPlaces" :md-open-on-focus="false">
           </md-autocomplete>
         </md-field>
       </md-list-item>

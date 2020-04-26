@@ -13,13 +13,56 @@
         :url="url"
         :attribution="attribution"
       />
-      <l-marker :lat-lng="withPopup">
+      <l-marker :lat-lng="withPopup" v-if="showMarker">
         <l-popup>
           <div>
             {{ this.$store.state.mapFilterLocation }}
           </div>
         </l-popup>
       </l-marker>
+      <l-feature-group>
+        <l-circle
+          v-for="circle in supplyCircles"
+          :key="circle.id"
+          :lat-lng="circle.position"
+          :radius="circle.quantity"
+          :color="supplyStyle.color"
+          :fill-color="supplyStyle.color"
+          :fill-opacity="supplyStyle.opacity">
+          <l-popup>
+            <div>
+              <p class="title">
+                {{ circle.loc_name }}
+              </p>
+               {{ "Resource: " + circle.resource }}
+               <br>
+               {{ "Quantity: " + circle.quantity }}
+            </div>
+          </l-popup>
+        </l-circle>
+      </l-feature-group>
+      <l-feature-group>
+        <l-circle
+          withPopup=""
+          v-for="circle in demandCircles"
+          :key="circle.id"
+          :lat-lng="circle.position"
+          :radius="circle.quantity"
+          :color="demandStyle.color"
+          :fill-color="demandStyle.color"
+          :fill-opacity="demandStyle.opacity">
+         <l-popup>
+            <div>
+              <p class="title">
+                {{ circle.loc_name }}
+              </p>
+               {{ "Resource: " + circle.resource }}
+               <br>
+               {{ "Quantity: " + circle.quantity }}
+            </div>
+          </l-popup>
+        </l-circle>
+      </l-feature-group>
     </l-map>
   </div>
 </template>
@@ -27,7 +70,7 @@
 
 <script>
 import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LCircle, LCircleMarker, LFeatureGroup } from "vue2-leaflet";
 
 export default {
   name: "RaiseMap",
@@ -37,6 +80,9 @@ export default {
     LMarker,
     LPopup,
     LTooltip,
+    LCircle,
+    LCircleMarker,
+    LFeatureGroup
   },
   data() {
     return {
@@ -45,11 +91,14 @@ export default {
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       currentZoom: 9,
-      currentCenter: latLng(this.$store.state.mapFilterLocation),
+      currentCenter: this.$store.state.mapFilterLocation,
       mapOptions: {
         zoomSnap: 0.5
       },
       showMap: true,
+      showMarker: false,
+      supplyStyle: {color: 'blue', opacity: 1.0 },
+      demandStyle: {color: 'darkred', opacity: 1.0 },
     }
   },
   mounted() {
@@ -57,14 +106,20 @@ export default {
   },
   computed: {
     center() {
-       return latLng(this.$store.state.mapFilterLocation);
+       return this.$store.state.mapFilterLocation;
     },
     withPopup() {
-       return latLng(this.$store.state.mapFilterLocation);
+       return this.$store.state.mapFilterLocation;
     },
     withTooltip() {
-       return latLng(this.$store.state.mapFilterLocation);
+       return this.$store.state.mapFilterLocation;
     },
+    supplyCircles() {
+      return this.$store.state.mapSupplyValues;
+    },
+    demandCircles() {
+      return this.$store.state.mapDemandValues;
+     }
   },
   methods: {
     zoomUpdate(zoom) {

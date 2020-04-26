@@ -1,21 +1,14 @@
 <template>
 	<div class="input-table">
-		<md-table v-model="rows">
-			<!-- <md-table-row>
-				<md-table-head md-numeric>No.</md-table-head>
-				<md-table-head>Location</md-table-head>
-				<md-table-head>Resource</md-table-head>
-				<md-table-head>Quantitiy</md-table-head>
-			</md-table-row> -->
+		<md-table v-model="supply">
 			
 			<md-table-row slot="md-table-row" slot-scope="{ item }">
-			<!-- <md-table-row v-for="n in rows.length" :key="n"> -->
 				<md-table-cell md-label="ID" md-sort-by="id" md-numeric>
 					{{item.id}}
 				</md-table-cell>
 				<md-table-cell md-label="Location" md-sort-by="location">
 					<md-field>
-						<md-input v-model="item.location">{{ item.location  }}</md-input>
+						<md-input v-model="item.loc_name">{{ item.loc_name }}</md-input>
 					</md-field>
 				</md-table-cell>
 				<md-table-cell md-label="Resource" md-sort-by="resource">
@@ -36,27 +29,27 @@
 <script>
 	export default {
 		name: "InputTable",
-		data() {
-			return {
-				rows: [{ id: 1,
-						location: "Rijswijk",
-						resource: "Doctors",
-						quantity: 100
-						},
-						{
-						id: 2,
-						location: "Rijswijk",
-						resource: "PPE",
-						quantity: 1000
-						},
-						{
-						id: 3,
-						location: "Rijswijk",
-						resource: "ventilators",
-						quantity: 35
-						}
-					]
-			};
+		computed: {
+			supply: {
+				get() {
+					return this.$store.state.inpSupplyValues;
+				},
+				set(value) {
+					//TODO position
+					value.position = {};
+					this.$store.commit('setInpSupplyValues', value)
+				}
+			},
+			demand: {
+				get() {
+					return this.$store.state.inpDemandValues;
+				},
+				set(value) {
+					//TODO position
+					value.position = {};
+					this.$store.commit('setInpDemandValues', value)
+				}
+			},
 		}
 	}
 </script>
