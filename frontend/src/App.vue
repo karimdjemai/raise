@@ -80,7 +80,7 @@
   
   .md-app-drawer {
     background-color: #0052aa;
-    color: #fff;
+    color: #f2f2f2;
     padding: 1.8em;
     width: 180px !important;
     
@@ -121,11 +121,7 @@
         width: 145%;
       }
       
-      .md-list-item-content {
-        //min-height: 0;
-      }
-      
-      .router-link-active {
+      .router-link-exact-active {
         .md-list-item-text {
         background-color: #f2f2f2;
           color: #0052aa;
@@ -182,7 +178,6 @@
         flex-grow: 1;
         h1 {
           color: #0052aa;
-          //margin: 1.5em;
           font-size: 35pt;
         }
       }
@@ -211,6 +206,7 @@
   .vue-map-container {
       border-radius: 1.5em 1.5em;
   }
+  
   .rounded-corners-left {
     border-radius: 1em 0 0 1em;
   }
