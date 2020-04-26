@@ -19,8 +19,7 @@
         </router-link>
   
         <router-link to="/data/demand" tag="md-list-item" :class="{
-          'router-link-exact-active': $router.currentRoute.name.includes('Data')
-        }">
+          'router-link-exact-active': $router.currentRoute.name.includes('Data')}">
           <span class="md-list-item-text">Data</span>
         </router-link>
         
@@ -52,6 +51,11 @@
           <router-view name="right_page"/>
         </div>
       </div>
+      
+      <md-button class="md-fab solve-button">
+        <img src="./assets/solve.png" alt="Avatar">
+        <md-tooltip md-direction="top">Solve</md-tooltip>
+      </md-button>
     </md-app-content>
   </md-app>
 </template>
@@ -61,14 +65,23 @@
   
   export default {
     name: 'App',
-    
     components: {
       RaiseLogo
+    },
+    
+    data() {
+     return {
+       loading: false,
+     }
+    },
+    
+    methods: {
+      solve() {
+        this.loading = true
+      }
     }
   }
 </script>
-
-
 
 <style lang="scss">
   #app {
@@ -183,10 +196,12 @@
         position: relative;
         flex-grow: 1;
         margin-right: 4em;
+        
         h1 {
           color: #0052aa;
           font-size: 35pt;
         }
+        
         h2, h3 {
           color: #0052aa;
         }
@@ -211,6 +226,14 @@
           font-size: 35pt;
         }
       }
+    }
+    
+    .solve-button {
+      position: fixed;
+      z-index: 5000000;
+      bottom: 1em;
+      right: 1em;
+      height: auto;
     }
   }
   .vue-map-container {
