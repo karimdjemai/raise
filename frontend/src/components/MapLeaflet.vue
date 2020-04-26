@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <l-map
+    <l-map ref="raiseMap"
       v-if="showMap"
       :zoom="zoom"
       :center="center"
@@ -13,19 +13,76 @@
         :url="url"
         :attribution="attribution"
       />
-      <l-marker :lat-lng="withPopup">
+      <l-marker :lat-lng="withPopup" v-if="showMarker">
         <l-popup>
-          <div @click="innerClick">
-            I am a popup
-            <p v-show="showParagraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-              Donec finibus semper metus id malesuada.
-            </p>
+          <div>
+            {{ this.$store.state.mapFilterLocation }}
           </div>
         </l-popup>
       </l-marker>
-      <v-geosearch :options="geosearchOptions" ></v-geosearch>
+      <l-feature-group>
+        <l-circle
+          v-for="circle in supplyCircles"
+          :key="circle.id"
+          :lat-lng="circle.position"
+          :radius="circle.quantity"
+          :color="supplyStyle.color"
+          :fill-color="supplyStyle.color"
+          :fill-opacity="supplyStyle.opacity">
+          <l-popup>
+            <div>
+              <p class="title">
+                {{ circle.loc_name }}
+              </p>
+               {{ "Resource: " + circle.resource }}
+               <br>
+               {{ "Quantity: " + circle.quantity }}
+            </div>
+          </l-popup>
+        </l-circle>
+      </l-feature-group>
+      <l-feature-group>
+        <l-circle
+          withPopup=""
+          v-for="circle in demandCircles"
+          :key="circle.id"
+          :lat-lng="circle.position"
+          :radius="circle.quantity"
+          :color="demandStyle.color"
+          :fill-color="demandStyle.color"
+          :fill-opacity="demandStyle.opacity">
+         <l-popup>
+            <div>
+              <p class="title">
+                {{ circle.loc_name }}
+              </p>
+               {{ "Resource: " + circle.resource }}
+               <br>
+               {{ "Quantity: " + circle.quantity }}
+            </div>
+          </l-popup>
+        </l-circle>
+      </l-feature-group>
+      <!-- <l-feature-group>
+        <l-polyline
+          v-for="line in allocation"
+          :key="line.id"
+          :lat-lngs="[line.from_position, line.to_position]"
+          :weight="line.quantity/100"
+          :color="allocationStyle.color"
+          :fill-opacity="allocationStyle.opacity">
+          <l-popup>
+            <div>
+              <p class="title">
+                Allocation
+              </p>
+               {{ "Resource: " + line.resource }}
+               <br>
+               {{ "Quantity: " + line.quantity }}
+            </div>
+          </l-popup>
+        </l-polyline>
+      </l-feature-group> -->
     </l-map>
   </div>
 </template>
@@ -33,11 +90,8 @@
 
 <script>
 import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
-import { OpenStreetMapProvider } from 'leaflet-geosearch';
-import { GoogleProvider } from 'leaflet-geosearch';
+import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LCircle, LCircleMarker, LFeatureGroup, LPolyline } from "vue2-leaflet";
 
-import VGeosearch from 'vue2-leaflet-geosearch';
 
 export default {
   name: "RaiseMap",
@@ -47,34 +101,51 @@ export default {
     LMarker,
     LPopup,
     LTooltip,
-    VGeosearch
+    LCircle,
+    LCircleMarker,
+    LFeatureGroup,
+    LPolyline,
   },
   data() {
     return {
       zoom: 9,
-      center: latLng(52.030433, 4.474871), //netherlands
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      withPopup: latLng(52.030433, 4.474871),
-      withTooltip: latLng(52.030433, 4.474871),
       currentZoom: 9,
-      currentCenter: latLng(52.030433, 4.474871),
-      showParagraph: false,
+      currentCenter: this.$store.state.mapFilterLocation,
       mapOptions: {
         zoomSnap: 0.5
       },
       showMap: true,
-      geosearchOptions: { // Important part Here
-        //provider: new OpenStreetMapProvider(),
-        provider: new GoogleProvider({
-                  params: {
-                    key: 'AIzaSyCFguorprJJ2cHkl_0C27ROgFObfruntjo',
-                  }
-        })
-      }
-  
-    };
+      showMarker: false,
+      supplyStyle: {color: '#0052aa', opacity: 1.0 },
+      demandStyle: {color: 'darkred', opacity: 1.0 },
+      allocationStyle: {color: '#54bbc1', opacity: 1.0},
+    }
+  },
+  mounted() {
+
+  },
+  computed: {
+    center() {
+       return this.$store.state.mapFilterLocation;
+    },
+    withPopup() {
+       return this.$store.state.mapFilterLocation;
+    },
+    withTooltip() {
+       return this.$store.state.mapFilterLocation;
+    },
+    supplyCircles() {
+      return this.$store.state.mapSupplyValues;
+    },
+    demandCircles() {
+      return this.$store.state.mapDemandValues;
+     },
+    allocation() {
+       return this.$store.state.mapAllocation;
+     },
   },
   methods: {
     zoomUpdate(zoom) {
@@ -83,12 +154,6 @@ export default {
     centerUpdate(center) {
       this.currentCenter = center;
     },
-    showLongText() {
-      this.showParagraph = !this.showParagraph;
-    },
-    innerClick() {
-      alert("Click!");
-    }
   }
 };
 </script>
