@@ -1,14 +1,11 @@
 <template>
 
-  <div style="height: 500px; width: 100%">
-    <div style="height: 200px overflow: auto;">
-    </div>
+  <div>
     <l-map
       v-if="showMap"
       :zoom="zoom"
       :center="center"
       :options="mapOptions"
-      style="height: 80%"
       @update:center="centerUpdate"
       @update:zoom="zoomUpdate"
     >
@@ -70,7 +67,7 @@ export default {
       showMap: true,
       geosearchOptions: { // Important part Here
         //provider: new OpenStreetMapProvider(),
-        provider: new GoogleProvider({ 
+        provider: new GoogleProvider({
                   params: {
                     key: 'AIzaSyCFguorprJJ2cHkl_0C27ROgFObfruntjo',
                   }
@@ -98,7 +95,11 @@ export default {
 
 <style>
 
-  .leaflet-control-geosearch form input {
-    height: 1.75rem!important;
+  /*.leaflet-control-geosearch form input {*/
+  /*  height: 1.75rem!important;*/
+  /*}*/
+  
+  .leaflet-container {
+    border-radius: 1.5em 0 0 1.5em;
   }
 </style>
