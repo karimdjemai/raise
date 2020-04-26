@@ -1,5 +1,5 @@
 <template>
-	<div class="data-demand">
+	<div class="data-availability">
 		<div class="header">
 			<div class="heads">
 				<h3>Existing: Name</h3>
@@ -15,7 +15,7 @@
 	import InputTable from '../../components/InputTable'
 	
 	export default {
-		name: "DataDemand",
+		name: "DataAvailability",
 		components: {
 			InputTable
 		}
@@ -23,7 +23,7 @@
 </script>
 
 <style lang="scss">
-	.data-demand {
+	.data-availability {
 		.header {
 			display: flex;
 			justify-content: space-between;

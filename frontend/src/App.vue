@@ -19,7 +19,7 @@
         </router-link>
   
         <router-link to="/data/demand" tag="md-list-item" :class="{
-          'router-link-exact-active': $router.currentRoute.name === 'Data'
+          'router-link-exact-active': $router.currentRoute.name.includes('Data')
         }">
           <span class="md-list-item-text">Data</span>
         </router-link>

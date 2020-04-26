@@ -6,6 +6,7 @@ import lMap from '../views/left/Map.vue'
 import rMap from '../views/right/Map.vue'
 import lData from '../views/left/Data'
 import rDataDemand from '../views/right/DataDemand'
+import rDataAvailability from '../views/right/DataAvailability'
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,7 @@ Vue.use(VueRouter)
   },
   {
     path: '/data/demand',
-    name: 'Data',
+    name: 'Data Demand',
     components: {
       left_page: lData,
       right_page: rDataDemand
@@ -36,10 +37,10 @@ Vue.use(VueRouter)
   },
   {
     path: '/data/availability',
-    name: 'Data',
+    name: 'Data Availability',
     components: {
       left_page: lData,
-      right_page: rDataDemand
+      right_page: rDataAvailability
     }
   },
   {
