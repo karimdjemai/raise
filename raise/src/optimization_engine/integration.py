@@ -10,7 +10,7 @@ from pyomo.opt import SolverStatus, TerminationCondition
 
 
 def read_database_demo():
-  supply_list = [("North", "Ventilators", 50), ("North", "Doctors", 30), ("North", "Nurses", 300), ("South", "Ventilators", 50), ("South", "Doctors", 30), ("South", "Nurses", 120), ("West", "Ventilators", 21), ("West", "Doctors", 100), ("West", "Nurses", 200), ("East", "Ventilators", 22), ("East", "Doctors", 100), ("East", "Nurses", 350)]
+  supply_list = [("North", "Ventilators", 50), ("North", "Doctors", 20), ("North", "Nurses", 300), ("South", "Ventilators", 50), ("South", "Doctors", 30), ("South", "Nurses", 150), ("West", "Ventilators", 21), ("West", "Doctors", 100), ("West", "Nurses", 100), ("East", "Ventilators", 9), ("East", "Doctors", 100), ("East", "Nurses", 100)]
   demand_list = [("North", "Ventilators", 5), ("North", "Doctors", 10), ("North", "Nurses", 50), ("South", "Ventilators", 100), ("South", "Doctors", 40), ("South", "Nurses", 100), ("West", "Ventilators", 20), ("West", "Doctors", 100), ("West", "Nurses", 200), ("East", "Ventilators", 5), ("East", "Doctors", 100), ("East", "Nurses", 300)]
   distance_list = [('North', 'South', 5), ('North', 'West', 100), ('North', 'East', 300), ('South', 'North', 5), ('South', 'West', 100), ('South', 'East', 300), ('West', 'North', 5), ('West', 'South', 100), ('West', 'East', 300), ('East', 'North', 5), ('East', 'South', 100), ('East', 'West', 300)]
   # infection_rate_list = [("region 1", "risk group 1", 12, 25000), ("region 1", "risk group 2", 82, 30000), ("region 2", "risk group 2", 13, 58000)]
