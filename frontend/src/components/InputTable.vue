@@ -1,31 +1,31 @@
 <template>
 	<div class="input-table">
-		<md-table>
-			<md-table-row>
+		<md-table v-model="rows">
+			<!-- <md-table-row>
 				<md-table-head md-numeric>No.</md-table-head>
 				<md-table-head>Location</md-table-head>
 				<md-table-head>Resource</md-table-head>
 				<md-table-head>Quantitiy</md-table-head>
-			</md-table-row>
+			</md-table-row> -->
 			
 			<md-table-row v-for="n in 10" :key="n">
 				<md-table-cell md-numeric>
 					{{n}}
 					
 				</md-table-cell>
-				<md-table-cell>
+				<md-table-cell md-label="Location" md-sort-by="location">
 					<md-field>
-						<md-input></md-input>
+						<md-input v-model="item.location">{{ item.location  }}</md-input>
 					</md-field>
 				</md-table-cell>
-				<md-table-cell>
+				<md-table-cell md-label="Resource" md-sort-by="resource">
 					<md-field>
-						<md-input></md-input>
+						<md-input v-model="item.resource">{{ item.resource }}</md-input>
 					</md-field>
 				</md-table-cell>
-				<md-table-cell>
+				<md-table-cell md-label="Quantity" md-sort-by="quantity">
 					<md-field>
-						<md-input></md-input>
+						<md-input v-model="item.quantity">{{ item.quantity }}</md-input>
 					</md-field>
 				</md-table-cell>
 			</md-table-row>
@@ -36,6 +36,28 @@
 <script>
 	export default {
 		name: "InputTable",
+		data() {
+			return {
+				rows: [{ id: 1,
+						location: "Rijswijk",
+						resource: "Doctors",
+						quantity: 100
+						},
+						{
+						id: 2,
+						location: "Rijswijk",
+						resource: "PPE",
+						quantity: 1000
+						},
+						{
+						id: 3,
+						location: "Rijswijk",
+						resource: "ventilators",
+						quantity: 35
+						}
+					]
+			};
+		}
 	}
 </script>
 
