@@ -8,7 +8,11 @@
 </template>
 
 <script>
-import raiseMap from '../../components/Map.vue'
+// Google map variant
+//import raiseMap from '../../components/MapGoogle.vue'
+
+// Leaflet map variant
+import raiseMap from '../../components/MapLeaflet.vue'
 
 export default {
   name: 'MapView',
