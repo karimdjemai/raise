@@ -176,6 +176,7 @@
       .left_content {
         position: relative;
         flex-grow: 1;
+        margin-right: 4em;
         h1 {
           color: #0052aa;
           font-size: 35pt;
