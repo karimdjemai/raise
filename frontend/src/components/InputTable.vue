@@ -11,6 +11,7 @@
 			<md-table-row v-for="n in 10" :key="n">
 				<md-table-cell md-numeric>
 					{{n}}
+					
 				</md-table-cell>
 				<md-table-cell>
 					<md-field>
