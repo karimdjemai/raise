@@ -17,8 +17,9 @@ def read_database_demo():
   # resource_demand_list = [("region 1", "risk group 1", 12), ("region 1", "risk group 2", 2), ("region 2", "risk group 2", 15)]
   regions = [("North",), ("South",), ("West",), ("East",)]
   resources = [("Ventilators",), ("Doctors",), ("Nurses",)]
+  factor = [("North", 0.22), ("South", 0.38), ("East", 0.3), ("West", 0.1)]
 
-  return [supply_list, demand_list, distance_list, regions, resources]
+  return [supply_list, demand_list, distance_list, regions, resources, factor]
 
 
 def read_database():
@@ -43,6 +44,9 @@ def read_database():
       cursor.execute("select region.name, risk_group.name, infection_rate.amount, infection_rate.population from region, risk_group, infection_rate where infection_rate.region_id = region.id and demand.risk_group_id = resource.id;")
       infection_rate_list = cursor.fetchall()
 
+      cursor.execute("select region.name, region.name, odmatrix.distance from odmatrix, region where odmatrix.from_id = region.id and odmatrix.to_id = region.id;")
+      distance_list = cursor.fetchall()
+  
       cursor.execute("select resource.name, risk_group.name, resource_demand.amount from resource, risk_group, resource_demand where resource_demand.resource_id = resource.id and resource_demand.risk_group_id = risk_group.id;")
       resource_demand_list = cursor.fetchall()
 
@@ -62,6 +66,32 @@ def read_database():
               connection.close()
               print("PostgreSQL connection is closed")
           return [supply_list, demand_list, distance_list, regions, resources]
+def write_to_database():
+  try:
+    connection = psycopg2.connect(user="raise",
+		                              password="",
+		                              host="localhost",
+		                              port="5432",
+		                              database="raise")
+    cursor = connection.cursor()
+
+    postgres_insert_query = """ INSERT INTO table (name, name, name) VALUES (%s,%s,%s)"""
+    record_to_insert = (5, 6, 7)
+    cursor.execute(postgres_insert_query, record_to_insert)
+
+    connection.commit()
+    count = cursor.rowcount
+    print (count, "Record inserted successfully")
+
+  except (Exception, psycopg2.Error) as error :
+    if(connection):
+      print("Failed to insert record", error)
+  finally:
+	    #closing database connection.
+    if(connection):
+      cursor.close()
+      connection.close()
+      print("PostgreSQL connection is closed")
 
 class Input():
   data = read_database_demo()
@@ -71,6 +101,7 @@ class Input():
   distance_list = data[2]
   regions = data[3]
   resources = data[4]
+  factor_list = data[5]
 
   infection_rate_list = []
   resource_demand_list = []
@@ -86,6 +117,9 @@ class Input():
   indexed_distance = {}
   for distance in distance_list:
     indexed_distance[(distance[0], distance[1])] = distance[2]
+  factors = {}
+  for factor in factor_list:
+    factors[factor[0]] = factor[1]
 
   indexed_infection_rate = {}
   indexed_population = {}
@@ -119,6 +153,8 @@ class Model():
 
         demand = self.preprocess_demand(inputs)
         availability = self.preprocess_availability(inputs)
+        shortage = self.calculate_shortage(inputs.resources_set, inputs.indexed_demand, inputs.indexed_supply)
+        demand, availability = self.distribute_shortage(inputs.factors, demand, availability, shortage)
 
         model.demand = Param(model.Locations, model.Resources, initialize = demand, default = 0)
         model.availability = Param(model.Locations, model.Resources, initialize = availability, default = 0)
@@ -142,17 +178,60 @@ class Model():
         results = opt.solve(model, tee=True)
         results.write()
 
+    def calculate_shortage(self, resources, demands, availabilities):
+        shortage = dict()
+
+        for i in demands:
+            for r in resources:
+                if i[1] == r:
+                    if r not in shortage:
+                        shortage[r] = 0
+
+                    shortage[r] += demands[i] - availabilities[i]
+
+        return shortage
+    
+    def distribute_shortage(self, factor, demand, availabilities, shortage):
+        for r in shortage:
+            if shortage[r] > 0:
+                for i in demand:
+                    if i[1] == r:
+                        demand[i] = round(demand[i] - shortage[r] * factor[i[0]])
+            elif shortage[r] < 0:
+                for i in availabilities:
+                    if i[1] == r:
+                        demand[i] = round(demand[i] * shortage[r] * (1 - factor[i[0]]))
+            else:
+                continue
+
+        total_demand = dict()
+        total_availability = dict()
+
+        for i in demand:
+            if i[1] not in total_demand:
+                total_demand[i[1]] = 0
+            
+            total_demand[i[1]] += demand[i]
+
+        for i in availabilities:
+            if i[1] not in total_availability:
+                total_availability[i[1]] = 0
+            
+            total_availability[i[1]] += availabilities[i]
+                
+        return (demand, availabilities)
+                        
     def preprocess_demand(self, inputs):
         return inputs.indexed_demand
     
     def preprocess_availability(self, inputs):
         return inputs.indexed_supply
 
-
 if __name__ == '__main__':
+
   data = read_database_demo()
 
   inputs = Input()
   
   model = Model()
-  test = model.run(inputs)
+  model.run(inputs)
