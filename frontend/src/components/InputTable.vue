@@ -8,10 +8,10 @@
 				<md-table-head>Quantitiy</md-table-head>
 			</md-table-row> -->
 			
-			<md-table-row v-for="n in 10" :key="n">
-				<md-table-cell md-numeric>
-					{{n}}
-					
+			<md-table-row slot="md-table-row" slot-scope="{ item }">
+			<!-- <md-table-row v-for="n in rows.length" :key="n"> -->
+				<md-table-cell md-label="ID" md-sort-by="id" md-numeric>
+					{{item.id}}
 				</md-table-cell>
 				<md-table-cell md-label="Location" md-sort-by="location">
 					<md-field>
