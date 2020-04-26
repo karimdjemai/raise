@@ -5,7 +5,7 @@
       <raise-map class="map" />
     </div>
     <div class="headers">
-      <h1>Zuid Holland</h1>
+      <h1>{{ $store.state.mapFilterLocationName}}</h1>
       <h2>Last update: 25.04.20</h2>
     </div>
   </div>

@@ -1,7 +1,6 @@
 <template>
 	<div class="input-table">
 		<md-table v-model="supply">
-			
 			<md-table-row slot="md-table-row" slot-scope="{ item }">
 				<md-table-cell md-label="ID" md-sort-by="id" md-numeric>
 					{{item.id}}
@@ -49,7 +48,7 @@
 					value.position = {};
 					this.$store.commit('setInpDemandValues', value)
 				}
-			},
+			}
 		}
 	}
 </script>

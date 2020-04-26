@@ -73,12 +73,6 @@
      return {
        loading: false,
      }
-    },
-    
-    methods: {
-      solve() {
-        this.loading = true
-      }
     }
   }
 </script>

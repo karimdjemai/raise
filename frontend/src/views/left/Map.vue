@@ -13,7 +13,7 @@
       <md-list-item>
         <span class="desc">Location</span>
         <md-field>
-          <md-autocomplete v-model="selectedPlace" placeholder="Type here..." :md-options="formattedPlaces" 
+          <md-autocomplete v-model="selectedPlace" placeholder="Type here..." :md-options="formattedPlaces"
                     @md-changed="getPlaces" @md-opened="getPlaces" :md-open-on-focus="false">
           </md-autocomplete>
         </md-field>
@@ -68,10 +68,11 @@ export default {
     places(oldValue, newValue) {
       try {
         // store coordinate to store
-        console.log(newValue);
+        console.log(newValue + ' new');
         console.log("places() - "+newValue[0].y);
         this.$store.commit('setMapFilterLocation', [newValue[0].y, newValue[0].x]);
-      } 
+        this.$store.commit('setMapFilterLocationName', newValue[0].raw.address_components[0].short_name)
+      }
       catch (ex) {
 
       }
@@ -92,7 +93,7 @@ export default {
       //         raw: {},                        // raw provider result
       //       }
       this.provider.search({ query: searchTerm})
-                    .then(function(result) { 
+                    .then(function(result) {
                       console.log(result);
                       this.places = result;
                     }.bind(this));

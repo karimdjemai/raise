@@ -10,15 +10,9 @@
 				</md-field>
 			</md-list-item>
 			<md-list-item>
-				<span class="desc">Scale</span>
-				<md-field>
-					<md-input placeholder="Type here..."></md-input>
-				</md-field>
-			</md-list-item>
-			<md-list-item>
 				<span class="desc">Location</span>
 				<md-field>
-				<md-autocomplete v-model="selectedPlace" placeholder="Type here..." :md-options="formattedPlaces" @md-changed="getPlaces" 
+				<md-autocomplete v-model="selectedPlace" placeholder="Type here..." :md-options="formattedPlaces" @md-changed="getPlaces"
 							@md-opened="getPlaces" :md-open-on-focus="false">
 				</md-autocomplete>
 				</md-field>
@@ -34,6 +28,14 @@
 				<md-field>
 					<md-input placeholder="Type here..."></md-input>
 				</md-field>
+			</md-list-item>
+			<md-list-item>
+				<span class="desc">Import</span>
+				<md-button class="import-button" @click="solve">
+					<md-icon>
+						add
+					</md-icon>
+				</md-button>
 			</md-list-item>
 		</md-list>
 		
@@ -99,10 +101,13 @@ export default {
 		//         raw: {},                        // raw provider result
 		//       }
 		this.provider.search({ query: searchTerm})
-						.then(function(result) { 
+						.then(function(result) {
 						console.log(result);
 						this.places = result;
 						}.bind(this));
+		},
+		solve() {
+			this.$store.commit('solve')
 		}
 	}
 }
@@ -141,6 +146,15 @@ export default {
 						}
 					}
 				}
+			}
+			
+			.import-button{
+				background-color: #0052aa;
+				color: #54bbc1;
+				text-transform: none;
+				font-weight: bold;
+				border-radius: 2em;
+				height: 100%;
 			}
 		}
 		
