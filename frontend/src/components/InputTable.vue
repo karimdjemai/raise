@@ -8,7 +8,7 @@
 				<md-table-head>Quantitiy</md-table-head>
 			</md-table-row>
 			
-			<md-table-row v-for="n in 10">
+			<md-table-row v-for="n in 10" :key="n">
 				<md-table-cell md-numeric>
 					{{n}}
 				</md-table-cell>
