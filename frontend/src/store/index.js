@@ -6,6 +6,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+      graph_before: true,
+      
+      notifications: [
+          {
+              header: '25.04.2020',
+              text: 'Order #573 delivered successfully to location XYZ.',
+              read: true
+          },
+          {
+              header: '25.04.2020',
+              text: 'Order #573 delivered successfully to location XYZ.',
+              read: true
+          }
+      ],
+      
       // test data
       mapFilterLocation: latLng(52.0376977, 4.32197379), //netherlands
       mapFilterLocationName: null,
@@ -145,6 +160,25 @@ export default new Vuex.Store({
         setInpDemandValues(state, newValue) {
             state.inpDemandValues = newValue;
         },
+        notifs(state) {
+            state.notifications = [
+                                                                 {
+                                                                     header: '25.04.2020',
+                                                                     text: '126 Ventilators moved from Gelderland to Groningen',
+                                                                     read: false
+                                                                 },
+                                                                 {
+                                                                     header: '25.04.2020',
+                                                                     text: '15 Ventilators moved from Drenthe to Friesland',
+                                                                     read: false
+                                                                 }
+                                                             ].concat(state.notifications)
+        },
+      
+        graph(state) {
+            state.graph_before = !state.graph_before
+        },
+      
         solve(state) {
             state.inpSupplyValues = [
                                            {
@@ -190,6 +224,13 @@ export default new Vuex.Store({
                                                quantity: 10000,
                                            },
                                        ]
+        },
+      
+        changeBubbles(state) {
+            state.mapDemandValues[0].quantity = 3000
+            state.mapDemandValues[1].quantity = 4000
+            state.mapSupplyValues[0].quantity = 4000
+            state.mapSupplyValues[1].quantity = 6000
         }
   },
   modules: {

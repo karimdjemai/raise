@@ -52,7 +52,7 @@
         </div>
       </div>
       
-      <md-button class="md-fab solve-button">
+      <md-button class="md-fab solve-button" @click="graph_change()">
         <img src="./assets/solve.png" alt="Avatar">
         <md-tooltip md-direction="top">Solve</md-tooltip>
       </md-button>
@@ -73,6 +73,14 @@
      return {
        loading: false,
      }
+    },
+    
+    methods: {
+      graph_change() {
+        this.$store.commit('graph')
+        this.$store.commit('notifs')
+        this.$store.commit('changeBubbles')
+      }
     }
   }
 </script>
@@ -161,7 +169,9 @@
       display: inline;
       margin-top: 2em;
       margin-bottom: 0;
-      position: relative;
+      position: absolute;
+      bottom:2em;
+      left:4.6em;
     }
   }
   
@@ -212,7 +222,7 @@
         padding: 3em 4em;
         border-radius: 1.5em 0 0 1.5em;
         background-color: #54bbc1;
-        width: 65%;
+        width: 50%;
         
         h1 {
           color: #0052aa;

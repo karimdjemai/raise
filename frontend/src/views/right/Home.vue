@@ -1,20 +1,14 @@
 <template>
 	<div class="home">
 		<div class="ava">
-			<!--<md-avatar class="md-small" alt="test">
-			
-			</md-avatar-->
-			<h2>Latest Updates</h2>
+			<md-avatar v-if="!$store.state.graph_before" class="md-small" alt="test" />
+			<h2>Notifications</h2>
 		</div>
 		
 		<md-list class="messages">
-			<md-list-item class="read">
-				<span class="header">25.04.2020</span>
-				<span class="md-list-item-text"> Order #573 delivered successfully to location XYZ.</span>
-			</md-list-item>
-			<md-list-item class="read">
-				<span class="header">25.04.2020</span>
-				<span class="md-list-item-text">Order #573 delivered successfully to location XYZ.</span>
+			<md-list-item v-for="i in notifs" :class="{read: i.read}">
+				<span class="header">{{i.header}}</span>
+				<span class="md-list-item-text">{{i.text}}</span>
 			</md-list-item>
 		</md-list>
 		
@@ -34,12 +28,7 @@
 				<span class="header">25.04.2020</span>
 				<span class="md-list-item-text">Order #573 delivered successfully to location XYZ.</span>
 			</md-list-item>
-			<md-list-item class="read">
-				<span class="header">25.04.2020</span>
-				<span class="md-list-item-text">Order #573 delivered successfully to location XYZ.</span>
-			</md-list-item>
 		</md-list>
-	 
   </div>
 </template>
 
@@ -48,7 +37,18 @@
 export default {
   name: 'Home',
   components: {
-  }
+  },
+	
+	data() {
+  	    return {
+        }
+	},
+	
+	computed: {
+  	    notifs() {
+  	    	return this.$store.state.notifications
+        }
+	}
 }
 </script>
 <style lang="scss">

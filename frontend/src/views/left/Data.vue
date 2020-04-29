@@ -4,12 +4,6 @@
 		<h3>Create new or choose existing template to input data.</h3>
 		<md-list class="options">
 			<md-list-item>
-				<span class="desc">Template</span>
-				<md-field>
-					<md-input placeholder="Choose option..."></md-input>
-				</md-field>
-			</md-list-item>
-			<md-list-item>
 				<span class="desc">Location</span>
 				<md-field>
 				<md-autocomplete v-model="selectedPlace" placeholder="Type here..." :md-options="formattedPlaces" @md-changed="getPlaces"
@@ -21,12 +15,6 @@
 				<span class="desc">Resource</span>
 				<md-field>
 					<md-input placeholder="Choose option..."></md-input>
-				</md-field>
-			</md-list-item>
-			<md-list-item>
-				<span class="desc">Risk Group</span>
-				<md-field>
-					<md-input placeholder="Type here..."></md-input>
 				</md-field>
 			</md-list-item>
 			<md-list-item>
@@ -161,6 +149,7 @@ export default {
 		.right-nav {
 			position: absolute;
 			right: -4em;
+			bottom:2em;
 			
 			.md-list-item-content {
 				min-height: 0;

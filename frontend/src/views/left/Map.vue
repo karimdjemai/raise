@@ -2,14 +2,9 @@
   <div class="map-left">
     <h1>Map</h1>
     <h3>Set filters to view resources in an area.</h3>
+    
   
     <md-list class="filters">
-      <md-list-item>
-        <span class="desc">Scale</span>
-        <md-field>
-          <md-input placeholder="Choose option..."></md-input>
-        </md-field>
-      </md-list-item>
       <md-list-item>
         <span class="desc">Location</span>
         <md-field>
@@ -21,19 +16,13 @@
       <md-list-item>
         <span class="desc">Resource</span>
         <md-field>
-          <md-input placeholder="Choose option..."></md-input>
-        </md-field>
-      </md-list-item>
-      <md-list-item>
-        <span class="desc">Risk</span>
-        <md-field>
-          <md-input placeholder="Choose option..."></md-input>
+          <md-input placeholder="Choose option..." value="Ventilators"></md-input>
         </md-field>
       </md-list-item>
       <md-list-item>
         <span class="desc">View</span>
         <md-field>
-          <md-input placeholder="Type here..."></md-input>
+          <md-input placeholder="Type here..." value="Demand"></md-input>
         </md-field>
       </md-list-item>
     </md-list>
@@ -51,7 +40,7 @@ export default {
   data() {
     return {
       places: [],
-      selectedPlace: null,
+      selectedPlace: 'Netherlands',
       provider: new GoogleProvider({
                     params: {
                       key: 'AIzaSyCFguorprJJ2cHkl_0C27ROgFObfruntjo',
