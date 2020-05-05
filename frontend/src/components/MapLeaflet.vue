@@ -167,4 +167,21 @@ export default {
   .leaflet-container {
     border-radius: 1.5em 0 0 1.5em;
   }
+    /* fix geosearch search glasses 
+  .leaflet-control-geosearch a.leaflet-bar-part:after {
+    top: 6px;
+    left: 6px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 2px solid #555;
+  }
+  .leaflet-control-geosearch a.leaflet-bar-part:before {
+    top: 18px;
+    left: 15px;
+    width: 7px;
+    border-top: 2px solid #555;
+    transform: rotateZ(45deg);
+  }*/
+
 </style>

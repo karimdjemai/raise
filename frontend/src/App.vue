@@ -251,21 +251,4 @@
     border-radius: 0 1em 1em 0;
   }
 
-  /* fix geosearch search glasses */
-  .leaflet-control-geosearch a.leaflet-bar-part:after {
-    top: 6px;
-    left: 6px;
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    border: 2px solid #555;
-  }
-  .leaflet-control-geosearch a.leaflet-bar-part:before {
-    top: 18px;
-    left: 15px;
-    width: 7px;
-    border-top: 2px solid #555;
-    transform: rotateZ(45deg);
-  }
-
 </style>

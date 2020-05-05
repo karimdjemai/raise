@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <h3>Daily Overview: Netherlands</h3>
+    <h3 class="">Daily Overview: {{ selectedPlace }} </h3>         
+
     <div class="filter">
       <p>Ventilators</p>
       <md-icon>arrow_drop_down</md-icon>
     </div>
-    
-    <div class="switch">
+    <div class="chart-container">
       <template v-if="before">
         <img src='../../assets/before.png' alt="test" />
       </template>
@@ -15,23 +15,32 @@
         <img src='../../assets/after.png' alt="test" />
       </template>
     </div>
-  
-    <img src='../../assets/map.png' class="map-pic"/>
+    <div class="map-container">
+      <raise-map class="map" />
+    </div>
   </div>
+  
 </template>
 
 <script>
+// Leaflet map variant
+import raiseMap from '../../components/MapLeaflet.vue'
 
 export default {
   name: 'Home',
   components: {
+    raiseMap
   },
-  
+  data() {
+    return {
+      selectedPlace: 'Netherlands',
+    }
+  },
   computed: {
     before() {
       return this.$store.state.graph_before
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss">
@@ -65,11 +74,21 @@ export default {
         width: 800px;
       }
     }
-    
-    .map-pic {
-      position: absolute;
-      bottom: 2em;
-      width: 900px;
+
+    .map {
+      width: 100%;
+      height: 35vh;
     }
+    .chart-container {
+      margin: 1em;
+    }
+    .map-container {
+      margin: 1em;
+    }
+   
+    .leaflet-container {
+      border-radius: 1.5em 0 0 1.5em;
+    }
+    
   }
 </style>
