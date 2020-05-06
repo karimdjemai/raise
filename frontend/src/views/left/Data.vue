@@ -51,7 +51,7 @@ export default {
 		places: [],
 		provider: new GoogleProvider({
 						params: {
-						key: 'AIzaSyCFguorprJJ2cHkl_0C27ROgFObfruntjo',
+						key: 'AIzaSyBaHO6WBqMapi31y-cD7XeigILf0fodX_o',
 						}
 		})
 		}
