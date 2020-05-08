@@ -177,6 +177,7 @@
   
   .md-app-container {
     background-color: black;
+    transform: none !important;
   }
   
   .md-app-content {
@@ -186,8 +187,7 @@
     border: none !important;
     
     .left_view {
-      position: absolute;
-      padding: 3em 4em;
+      padding: 3em 0em 3em 3em;
       border-radius: 1.5em;
       background-color: #f2f2f2;
       width: 100%;
@@ -199,7 +199,7 @@
       .left_content {
         position: relative;
         flex-grow: 1;
-        margin-right: 4em;
+        margin-right: 2em;
         
         h1 {
           color: #0052aa;
@@ -213,13 +213,9 @@
       
       .right_view {
         position: relative;
-        margin: {
-          top: -3em;
-          right: -4em;
-          bottom: -3em;
-        }
+        margin: -3em 0em;
         
-        padding: 3em 4em;
+        padding: 3em;
         border-radius: 1.5em 0 0 1.5em;
         background-color: #54bbc1;
         width: 50%;
