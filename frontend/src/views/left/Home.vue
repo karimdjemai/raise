@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <h3 class="">Daily Overview: {{ selectedPlace }} </h3>
-
+    <h3>Daily Overview: {{ selectedPlace }} </h3>
     <div class="chart-container">
-    
+      <BarChart :datasets="chartData" :labels="chartLabels" height="200px"/>
     </div>
+    
     <div class="map-container">
       <raise-map class="map" />
     </div>
@@ -16,10 +16,12 @@
 <script>
 // Leaflet map variant
 import raiseMap from '../../components/MapLeaflet.vue'
+import BarChart from '../../components/BarChart'
 
 export default {
   name: 'Home',
   components: {
+    BarChart,
     raiseMap
   },
   data() {
@@ -31,39 +33,42 @@ export default {
     before() {
       return this.$store.state.graph_before
     },
+    chartData() {
+      return [
+        {
+          label: 'Data One',
+          backgroundColor: '#71DBC4',
+          data: [40, 20]
+        }
+      ]
+    },
+    chartLabels() {
+      return [
+        'January'
+      ]
+    }
   },
 }
 </script>
 <style lang="scss">
   .home {
-    .switch {
-      max-width: 400px;
-      img {
-        position: absolute;
-        left: -1em;
-        max-width: none;
-        width: 800px;
+    height: 100%;
+    
+    .map-container {
+      margin-top: 3em;
+      .map {
+        width: 100%;
+        height: 35vh;
+        
+        .leaflet-container {
+          border-radius: 1.5em;
+        }
       }
     }
-
-    .map {
-      width: 100%;
-      height: 35vh;
-    }
-    .chart-container {
-      margin: 1em;
-      margin-right:-4em;
-      overflow: scroll;
-      height: 200px;
-      background-color: red;
-    }
-    .map-container {
-      margin: 1em;
-    }
-   
-    .leaflet-container {
-      border-radius: 1.5em;
-    }
     
+    .chart-container {
+      margin: 1em -4em 1em 0em;
+      overflow: scroll;
+    }
   }
 </style>
