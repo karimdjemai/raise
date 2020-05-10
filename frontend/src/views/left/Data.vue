@@ -14,7 +14,9 @@
 			<md-list-item>
 				<span class="desc">Resource</span>
 				<md-field>
-					<md-input placeholder="Choose option..."></md-input>
+					<md-autocomplete v-model="selectedResource" :md-options="uniqueResources" 
+                            placeholder="Choose one...">
+          			</md-autocomplete>
 				</md-field>
 			</md-list-item>
 			<md-list-item>
@@ -49,6 +51,8 @@ export default {
 	data() {
 		return {
 		places: [],
+		selectedResource: 'PPE',
+		uniqueResources: ['PPE','Ventilators','Doctors','Nurses'],
 		provider: new GoogleProvider({
 						params: {
 						key: 'AIzaSyBaHO6WBqMapi31y-cD7XeigILf0fodX_o',
@@ -187,4 +191,8 @@ export default {
 		top: 0px;
 		}
 	}
+  /* fix opaque background color of select/autocomplete options */
+  .md-menu-content-container {
+    background-color: white;
+  }
 </style>

@@ -20,7 +20,9 @@ export default new Vuex.Store({
               read: true
           }
       ],
-      
+      // MAP
+      mapFilterResource: "PPE",
+      mapFilterView: "",
       // test data
       mapFilterLocation: latLng(52.0376977, 4.32197379), //netherlands
       mapFilterLocationName: null,
@@ -106,6 +108,13 @@ export default new Vuex.Store({
               loc_name: "Rijswijk, Niederlande",
               quantity: 10000,
           },
+          {
+            id: 3,
+            resource: "Ventilators",
+            position: latLng(51.9244201, 4.4777326),
+            loc_name: "Rotterdam, Niederlande",
+            quantity: 5,
+          },
       ],
       mapDemandValues: [
           {
@@ -122,7 +131,15 @@ export default new Vuex.Store({
               loc_name: "Rijswijk, Niederlande",
               quantity: 1500,
           },
+          {
+            id: 3,
+            resource: "Ventilators",
+            position: latLng(52.090433, 4.794871),
+            loc_name: "Rijswijk, Niederlande",
+            quantity: 10,
+          },
       ],
+      //TODO visualize flow of resources = allocation
       mapAllocation: [
           {
               id: 1,
@@ -159,6 +176,12 @@ export default new Vuex.Store({
         },
         setInpDemandValues(state, newValue) {
             state.inpDemandValues = newValue;
+        },
+        setMapFilterResource(state, newValue) {
+            state.mapFilterResource = newValue;
+        },
+        setMapFilterView(state, newValue) {
+            state.mapFilterView = newValue;
         },
         notifs(state) {
             state.notifications = [

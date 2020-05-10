@@ -7,8 +7,7 @@
       :center="center"
       :options="mapOptions"
       @update:center="centerUpdate"
-      @update:zoom="zoomUpdate"
-    >
+      @update:zoom="zoomUpdate">
       <l-tile-layer
         :url="url"
         :attribution="attribution"
@@ -20,15 +19,16 @@
           </div>
         </l-popup>
       </l-marker>
-      <l-feature-group>
+      <l-feature-group v-if="filterView('Availability')">
         <l-circle
           v-for="circle in supplyCircles"
           :key="circle.id"
           :lat-lng="circle.position"
-          :radius="circle.quantity"
+          :radius="symbolSize(circle.quantity, circle.resource)"
           :color="supplyStyle.color"
           :fill-color="supplyStyle.color"
-          :fill-opacity="supplyStyle.opacity">
+          :fill-opacity="supplyStyle.opacity"
+          :visible="filterResource(circle.resource)">
           <l-popup>
             <div>
               <p class="title">
@@ -41,16 +41,17 @@
           </l-popup>
         </l-circle>
       </l-feature-group>
-      <l-feature-group>
+      <l-feature-group v-if="filterView('Demand')">
         <l-circle
           withPopup=""
           v-for="circle in demandCircles"
           :key="circle.id"
           :lat-lng="circle.position"
-          :radius="circle.quantity"
+          :radius="symbolSize(circle.quantity, circle.resource)"
           :color="demandStyle.color"
           :fill-color="demandStyle.color"
-          :fill-opacity="demandStyle.opacity">
+          :fill-opacity="demandStyle.opacity"
+          :visible="filterResource(circle.resource)">
          <l-popup>
             <div>
               <p class="title">
@@ -91,7 +92,6 @@
 <script>
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup, LTooltip, LCircle, LCircleMarker, LFeatureGroup, LPolyline } from "vue2-leaflet";
-
 
 export default {
   name: "RaiseMap",
@@ -145,7 +145,7 @@ export default {
      },
     allocation() {
        return this.$store.state.mapAllocation;
-     },
+    },
   },
   methods: {
     zoomUpdate(zoom) {
@@ -154,6 +154,42 @@ export default {
     centerUpdate(center) {
       this.currentCenter = center;
     },
+    symbolSize(quantity, resource) {
+      //scale radius by resource and quantity
+      // because maybe
+      // 10000 > 1000 > 100  > 10
+      // PPE > Nurses > Doctors > Ventilators
+      if (quantity <= 10) {
+        return quantity * 500;
+      }
+      if (quantity <= 100) {
+        return quantity * 50;
+      }
+      if (quantity <= 1000) {
+        return quantity * 5;
+      }
+      else {
+        return quantity;
+      }
+    },
+    filterResource(resource) {
+
+      if (this.$store.state.mapFilterResource.length>0) {
+        return (resource==this.$store.state.mapFilterResource);
+      }
+      else {
+        return true;
+      }
+    },
+    filterView(featureGroup) {
+
+      if (this.$store.state.mapFilterView.length>0) {
+        return (featureGroup==this.$store.state.mapFilterView);
+      }
+      else {
+        return true;
+      }
+    }
   }
 };
 </script>

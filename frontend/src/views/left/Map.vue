@@ -16,13 +16,19 @@
       <md-list-item>
         <span class="desc">Resource</span>
         <md-field>
-          <md-input placeholder="Choose option..." value="Ventilators"></md-input>
+          <md-autocomplete v-model="selectedResource" :md-options="uniqueResources" 
+                            placeholder="Choose...">
+          </md-autocomplete>
         </md-field>
       </md-list-item>
       <md-list-item>
         <span class="desc">View</span>
         <md-field>
-          <md-input placeholder="Type here..." value="Demand"></md-input>
+          <md-select v-model="selectedView">
+            <md-option value="" selected>All</md-option>
+            <md-option value="Demand">Demand</md-option>
+            <md-option value="Availability">Availability</md-option>
+          </md-select>
         </md-field>
       </md-list-item>
     </md-list>
@@ -41,6 +47,7 @@ export default {
     return {
       places: [],
       selectedPlace: 'Netherlands',
+      uniqueResources: ['PPE','Ventilators','Doctors','Nurses'],
       provider: new GoogleProvider({
                     params: {
                       key: 'AIzaSyBaHO6WBqMapi31y-cD7XeigILf0fodX_o',
@@ -51,6 +58,22 @@ export default {
   computed: {
     formattedPlaces() {
       return this.places.map(p=>p.label);
+    },
+    selectedResource: {
+      get() {
+        return this.$store.state.mapFilterResource;
+      },
+      set(value) {
+        this.$store.commit('setMapFilterResource', value);
+      }
+    },
+    selectedView: {
+      get() {
+        return this.$store.state.mapFilterView;
+      },
+      set(value) {
+        this.$store.commit('setMapFilterView', value);
+      }
     }
   },
   watch: {
@@ -65,7 +88,7 @@ export default {
       catch (ex) {
 
       }
-    }
+    },
   },
   methods: {
     getPlaces(searchTerm) {
@@ -97,6 +120,7 @@ export default {
     }
     
     .md-list {
+
       .md-list-item {
         background-color: #fff;
         margin: 1em;
@@ -133,5 +157,10 @@ export default {
     .md-autocomplete .md-button {
        top: 0px;
     }
+  }
+
+  /* fix opaque background color of select/autocomplete options */
+  .md-menu-content-container {
+    background-color: white;
   }
 </style>

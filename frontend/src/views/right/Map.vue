@@ -22,7 +22,8 @@ export default {
   name: 'MapView',
   components: {
     raiseMap
-  }
+  },
+
 }
 </script>
 
