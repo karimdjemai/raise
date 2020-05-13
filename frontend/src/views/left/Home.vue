@@ -36,15 +36,26 @@ export default {
     chartData() {
       return [
         {
-          label: 'Data One',
+          label: 'Demand',
           backgroundColor: '#71DBC4',
-          data: [40, 20]
-        }
+          data: [40, 30, 40, 80, 30, 55]
+        },
+        {
+          label: 'Availability',
+          backgroundColor: '#0052aa',
+          data: [40, 30, 20, 70, 30, 60]
+        },
+        
       ]
     },
     chartLabels() {
       return [
-        'January'
+        'Groningen',
+        'Friesland',
+        'Drenthe',
+        'Overjissel',
+        'Flevoland',
+        'Gelderland'
       ]
     }
   },

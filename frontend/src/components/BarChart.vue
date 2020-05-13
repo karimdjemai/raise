@@ -28,6 +28,9 @@
 				options: {
 					responsive: true,
 					maintainAspectRatio: false,
+					legend: {
+						position: 'left'
+					}
 				},
 			}
 		},
